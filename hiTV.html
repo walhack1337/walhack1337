@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Log | hiTV Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e2e8f0;
+        }
+        .mono { font-family: 'VT323', monospace; }
+        .accent-border { border-right: 4px solid #4ade80; }
+        .terminal-bg { background: rgba(15, 15, 15, 0.8); border: 1px solid rgba(74, 222, 128, 0.2); }
+        .glow-text { text-shadow: 0 0 10px rgba(74, 222, 128, 0.5); }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <div class="max-w-4xl mx-auto mb-10 flex justify-between items-center">
+        <a href="research.html" class="mono text-[#4ade80] hover:underline text-xl"><< RETURN_TO_DATABASE</a>
+        <div class="text-right">
+        </div>
+    </div>
+
+    <main class="max-w-4xl mx-auto">
+        <header class="mb-12 accent-border pr-6">
+            <h1 class="mono text-5xl md:text-6xl text-white font-bold mb-2 glow-text">ANALYSIS: hiTV APP</h1>
+            <p class="text-[#4ade80] font-mono">Subject: Reverse Engineering &  Deconstruction</p>
+        </header>
+
+        <section class="mb-10">
+            <h2 class="mono text-2xl text-[#4ade80] mb-4 border-b border-[#4ade80]/20 pb-2">01_المقدمة (Summary)</h2>
+            <p class="text-gray-400 leading-relaxed">
+                هذا البحث يستعرض نتائج الهندسة العكسية لتطبيق <strong>hiTV</strong>. تم التركيز على فهم طريقة عمل البرنامج، البحث على كل الاكواد الخبيثة فالبرنامج ، معرفة اين يتم ارسال البيانات المسروقة من الهاتف. الهدف هو كشف اي التهديدات في البرنامج.
+            </p>
+        </section>
+
+        <section class="mb-10 grid md:grid-cols-2 gap-6">
+            <div class="terminal-bg p-6 rounded-lg">
+                <h2 class="mono text-xl text-[#4ade80] mb-3">02_أدوات التحليل المستعملة(Tools)</h2>
+                <ul class="font-mono text-sm space-y-2 text-gray-300">
+                    <li>> JADX-GUI: Static Analysis</li>
+                    <li>> Ghidra: Native Library Analysis</li>
+                    <li>> Apktool: Extract application files</li>
+                </ul>
+
+        </section>
+
+        <section class="mb-10">
+            <h2 class="mono text-2xl text-[#4ade80] mb-4 border-b border-[#4ade80]/20 pb-2">03_النتائج التقنية (Findings)</h2>
+            <p class="mb-4"> بعد تحليل ال Apk لقينا هاذي الاكواد  الخبيثة:</p>
+            
+            <h2 class="mono text-2xl text-[#4ade80] mb-4 border-b border-[#4ade80]/20 pb-2">1</h2>
+            <div class="bg-black border border-gray-800 p-5 rounded-md font-mono text-sm overflow-x-auto">
+                <span class="text-gray-600">/* JADX INFO: loaded from: assets/lspatch/loader.dex */</span><br>
+                <span class="text-blue-400">public class</span> <span class="text-white">Application</span> <span class="text-blue-400">implements</span> <span class="text-green-400">Parcelable</span> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">public static final</span> <span class="text-green-400">Parcelable.Creator</span>&lt;<span class="text-white">Application</span>&gt; <span class="text-white">CREATOR</span> = <span class="text-blue-400">new</span> <span class="text-green-400">Parcelable.Creator</span>&lt;<span class="text-white">Application</span>&gt;() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-500">@Override</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">public</span> <span class="text-white">Application</span> <span class="text-green-400">createFromParcel</span>(<span class="text-white">Parcel parcel</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">Application application =</span> <span class="text-blue-400">new</span> <span class="text-white">Application();</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">application.readFromParcel(parcel);</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-white">application;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+                }
+                
+            </div>
+<p class="text-gray-400 leading-relaxed">
+هذا الكود هو جزء من نظام LSPatch، ومهمته الأساسية هي تعريف الهدف المراد اختراقه حيث يقوم باستخدام واجهة Parcelable لنقل بيانات التطبيق مثل اسم الحزمة  ومعرف المستخدم  ملف خارجي مخفي داخل الـ إلى ذاكرة النظام . يكمن خبث هذا الكود في أنه يمثل جسر العبور الذي يسمح بحقن كود خارجي Hooking داخل عمليات تطبيقات أخرى دون علم المستخدم، مما يمنح المهاجم القدرة على اعتراض كلمات المرور، قراءة الرسائل، أو تزييف واجهات التطبيقات البنكية عبر السيطرة الكاملة على الدوال Methods داخل بيئة الـ Runtime، وكل ذلك يتم دون الحاجة لصلاحيات الروت التقليدية، مما يجعله وسيلة احترافية للتجسس وتجاوز حماية أندرويد.
+</p>       
+            <h2 class="mono text-2xl text-[#4ade80] mb-4 border-b border-[#4ade80]/20 pb-2">2</h2>
+
+<div class="bg-black border border-gray-800 p-5 rounded-md font-mono text-sm overflow-x-auto">
+                <span class="text-blue-400">public static</span> <span class="text-green-400">MethodHook.Unhook</span> <span class="text-white">m329</span>(<span class="text-green-400">Object</span> <span class="text-white">obj</span>, <span class="text-green-400">Object</span> <span class="text-white">obj2</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">if</span> (<span class="text-white">C0004.m381() >= </span><span class="text-orange-400">0</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-white">Pine.</span><span class="text-green-400">hook</span>((<span class="text-green-400">Member</span>) <span class="text-white">obj</span>, (<span class="text-green-400">MethodHook</span>) <span class="text-white">obj2</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return null;</span><br>
+                }
+  
+          </div>
+<p class="text-gray-400 leading-relaxed">
+ هذا الكود هو كمين يقوم بتبديل أوامر الهاتف الأصلية بأوامر من صنع المخترق؛ فبدلاً من أن ينفذ الهاتف الأمر الحقيقي (مثل التأكد من البصمة او مثل سرقة كلمات المرور)، يمر الأمر عبر هذا الكود ليقوم بخطفه وتغيير نتيجته أو سرقة البيانات التي تمر فيه بالخفاء.
+</p>  
+
+        </section>
+
+        <section class="mb-10">
+            <h2 class="mono text-2xl text-[#4ade80] mb-4 border-b border-[#4ade80]/20 pb-2">04_المخاطر المكتشفة</h2>
+            <div class="space-y-4">
+                <div class="flex gap-4 items-start border-r-2 border-red-500 pr-4">
+                    <span class="text-red-500 font-bold">[CRITICAL]</span>
+                    <div>
+                        <h4 class="text-white font-bold"> خطف الأوامر </h4>
+                        <p class="text-sm text-gray-400">يسمح للمخترق بتغيير أي شيء، مثل تحويل مبلغ مالي من تطبيق بنكي دون علمك.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start border-r-2 border-yellow-500 pr-4">
+                    <span class="text-yellow-500 font-bold">[MEDIUM]</span>
+                    <div>
+                        <h4 class="text-white font-bold">تشفير البيانات </h4>
+                        <p class="text-sm text-gray-400">يستخدم لإخفاء روابط السيرفرات التي تستقبل بياناتك المسروقة بعيداً عن أعين الحمايات والمستخدمين.</p>
+                    <div class="flex gap-4 items-start border-r-2 border-red-500 pr-4">
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <div class="space-y-4">
+                <div class="flex gap-4 items-start border-r-2 border-red-500 pr-4">
+                    <span class="text-red-500 font-bold">[CRITICAL]</span>
+                    <div>
+                        <h4 class="text-white font-bold"> تجاوز البصمة/القفل</h4>
+                        <p class="text-sm text-gray-400">القدرة على فتح التطبيقات المقفلة أو قفل الشاشة عبر تزييف نتيجة التحقق.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start border-r-2 border-yellow-500 pr-4">
+                    <span class="text-yellow-500 font-bold">[Hard]</span>
+                    <div>
+                        <h4 class="text-white font-bold">سحب البيانات  </h4>
+                        <p class="text-sm text-gray-400">سرقة سجل المكالمات، الرسائل النصية SMS، وقائمة الأسماء بالكامل.</p>
+                    <div class="flex gap-4 items-start border-r-2 orange-700 pr-4">
+                    
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+                    <div class="space-y-4">
+           
+                <div class="flex gap-4 items-start border-r-2 border-yellow-500 pr-4">
+                    <span class="text-yellow-500 font-bold">[Hard]</span>
+                    <div>
+                        <h4 class="text-white font-bold"> حقن الكود LSPatch  </h4>
+                        <p class="text-sm text-gray-400">يجعل التطبيق يختبئ داخل تطبيقات نظامية أخرى، مما يصعب حذفه أو اكتشافه.</p>
+                    <div class="flex gap-4 items-start border-r-2 orange-700 pr-4">
+                    
+                    </div>
+
+                </div>
+            </div>
+        </section>
+                    <h2 class="mono text-2xl text-[#4ade80] mb-4 border-b border-[#4ade80]/20 pb-2">05_ملاحظة  (Findings)</h2>
+
+<p class="text-gray-400 leading-relaxed">
+لاحظت نسبة عالية من الاشخاص يستعملوت هاذا التطبيق المكرك وهم يجهلون خطورة هاذا التطبيق الخبيث والحين راح اعطيكم البصمة الرقمية لهاذا التطبيق الخطير او بما تسمى ب  hash  يعني اذا لقيتو برنامج له نفس البصمة الرقمية هذا يعني انه نفس البرنامج الخبيث وابتعدو عنه مبارة قبل ان تشغلوه اصلا 
+
+<p>SHA-256 : fdc41bda801b38ad5ccba84fc84bf9d1936b279070e952ff295ff122da3f59b3</p>
+<p>MD5 : 8135d7c655848acc1bc45c8fb43d465a</p>
+<p>لكن ليس لما تلقا برنامج  نفسه من مصدر اخر , لكن البصمة غير متشابهة فانه ليس  امن تماما فيمكن او يكون اخطر من هاذا حرفيا </p>
+</p>  
+            <h2 class="mono text-2xl text-[#ff0000] mb-4 border-b border-[#ff0000]/20 pb-2">06_تنويه !</h2>
+            <p class="text-gray-400 leading-relaxed">
+                كل هذي التحليلات والتفكيكات هي مستعملة من طرف اشخاص فاهمين وش يعملون وفي مختبارات مغلوقة تماما فان لم تكن تفقه في مجال الهندسة العكسية من فضلك لاتجرب اي شي وكل , هذي الاعمال بهدف الحماية وتوعية المجتمع بخطر البرامج الكركة والمعدلة
+            </p> 
+        <footer class="mt-20 pt-8 border-t border-gray-900 text-center font-mono text-xs text-gray-600">
+            <h2 class="mono text-2xl text-[#4ade80] mb-4 border-b border-[#4ade80]/20 pb-2">يتبع .....Part2</h2>
+
+            <p>CONCLUDING RESEARCH LOG // NO FURTHER DATA IN THIS NODE</p>
+            <p class="mt-2">WALHACK & VAYLO SEC-LABS © 2026</p>
+        
+        
+        </footer>
+    </main>
+
+</body>
+</html>

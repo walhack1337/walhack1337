@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malware Analysis | WA5_Abo3rab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e2e8f0;
+        }
+        .mono { font-family: 'VT323', monospace; }
+        .accent-border { border-right: 4px solid #4ade80; }
+        .terminal-bg { background: rgba(15, 15, 15, 0.9); border: 1px solid rgba(74, 222, 128, 0.2); }
+        .glow-text { text-shadow: 0 0 10px rgba(74, 222, 128, 0.5); }
+        .code-block { direction: ltr; text-align: left; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <div class="max-w-5xl mx-auto mb-10 flex justify-between items-center">
+        <a href="research.html" class="mono text-[#4ade80] hover:underline text-xl"><< RETURN_TO_DATABASE</a>
+        <div class="text-right">
+
+        </div>
+    </div>
+
+    <main class="max-w-5xl mx-auto">
+        <header class="mb-12 accent-border pr-6">
+            <h1 class="mono text-5xl md:text-6xl text-white font-bold mb-2 glow-text">ANALYSIS: WA5_Abo3rab_v13.95</h1>
+            <p class="text-[#4ade80] font-mono text-lg">Subject: Modded WhatsApp Decompilation & Malware Extraction</p>
+        </header>
+
+        <section class="mb-12 grid md:grid-cols-2 gap-6">
+            <div class="terminal-bg p-6 rounded-lg">
+                <h2 class="mono text-xl text-[#4ade80] mb-4 border-b border-[#4ade80]/20 pb-2">01_معلومات العينة </h2>
+                <ul class="font-mono text-sm space-y-3 text-gray-300">
+                    <li><span class="text-gray-500">File Name:</span> <span class="text-white">WA5_Abo3rab_v13.95.apk</span></li>
+                    <li><span class="text-gray-500">App Type:</span> WhatsApp Mod (تطبيق معدل)</li>
+                    <li><span class="text-gray-500">Actual Threat:</span> Hybrid Malware <span class="text-red-400">(Adware, Dropper, SMS Fraud)</span></li>
+                    <li><span class="text-gray-500">هاذي الصفحة المسؤولة على هذا البرنامج الخبيث :</span> <a href="https://t.me/abu3rab_apk" class="text-blue-400 hover:underline" target="_blank">Telegram (تطبيقات الذهبي ابو عربً)</a></li>
+                </ul>
+            </div>
+            <div class="terminal-bg p-6 rounded-lg border-red-900/50">
+                <h2 class="mono text-xl text-red-400 mb-4 border-b border-red-500/20 pb-2">الملخص التنفيذي </h2>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    أثبت التحليل الديناميكي والثابت أن التطبيق يحتوي على حزم برمجية خبيثة ومحقونة (مثل <span class="text-yellow-400 mono">com.mod.libs</span>). 
+                    تقوم هذه البرمجية بالاتصال بخوادم تحكم (C2) مشفرة، وتزرع متصفحات خفية لتوليد زيارات إعلانية وهمية، بالإضافة إلى امتلاكها صلاحيات لتثبيت تطبيقات أخرى بصلاحيات الروت Root بصمت، وآلية لمسح آثارها (Anti-Analysis) عند اكتشافها.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="mono text-3xl text-[#4ade80] mb-8 border-b border-[#4ade80]/20 pb-2">02_الأدلة الجنائية </h2>
+
+            <div class="mb-10 pl-4 border-l border-gray-800">
+                <h3 class="text-xl font-bold text-orange-500 mb-2">1. انتهاك الخصوصية والأذونات الكارثية</h3>
+                <p class="text-gray-400 mb-4 text-sm">من خلال تحليل ملف <span class="mono text-white">AndroidManifest.xml</span>، تبين أن التطبيق يطلب صلاحيات لا تتناسب مطلقاً مع وظيفة المراسلة:</p>
+                <img src="imag-3.png" alt="Permissions" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full">
+                <ul class="list-disc list-inside text-sm text-gray-300 space-y-2 mb-4">
+                    <li><span class="text-red-400 mono">REQUEST_INSTALL_PACKAGES:</span> لتثبيت تطبيقات خارجية بصمت أساس الـ Dropper.</li>
+                    <li><span class="text-red-400 mono">SYSTEM_ALERT_WINDOW:</span> رسم نوافذ فوق التطبيقات Clickjacking.</li>
+                    <li><span class="text-red-400 mono">KILL_BACKGROUND_PROCESSES:</span> تعطيل آليات الحماية.</li>
+                    <li><span class="text-red-400 mono">READ_CALL_LOG & ANSWER_PHONE_CALLS:</span> التجسس على المكالمات والرد التلقائي.</li>
+                </ul>
+            </div>
+
+            <div class="mb-10 pl-4 border-l border-gray-800">
+                <h3 class="text-xl font-bold text-orange-500 mb-2">2. منظومة الاحتيال الإعلاني </h3>
+                <p class="text-gray-400 mb-4 text-sm">في الكلاس <span class="mono text-white">com.mod.libs.TAd</span>، تم العثور على آلية لتوليد الزيارات الوهمية وإنشاء متصفحات خفية، مع تزوير هوية المتصفح لخداع خوادم الإعلانات.</p>
+                <img src="imag-1.png" alt="Ad Fraud Code" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full">
+                <div class="bg-black border border-gray-800 p-4 rounded-md font-mono text-sm overflow-x-auto code-block">
+                    <span class="text-gray-600">// User-Agent Spoofing</span><br>
+                    <span class="text-white">webViewTrfx.getSettings().setUserAgentString(</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-yellow-400">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.57.2..."</span><span class="text-white">);</span>
+                </div>
+            </div>
+
+            <div class="mb-10 pl-4 border-l border-gray-800">
+                <h3 class="text-xl font-bold text-orange-500 mb-2">3. التثبيت الصامت للحمولات </h3>
+                <p class="text-gray-400 mb-4 text-sm">يحتوي الكلاس <span class="mono text-white">com.mod.libs.TTR</span> على دوال قاتلة تثبت نية زرع برمجيات أخرى باستغلال صلاحيات الروت.</p>
+                <img src="imag-5.png" alt="Root Install" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full">
+                <div class="bg-black border border-gray-800 p-4 rounded-md font-mono text-sm overflow-x-auto code-block">
+                    <span class="text-blue-400">public void</span> <span class="text-green-400">InstallApkRooted</span>(<span class="text-white">String str</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-500">/* Executes su command to install APK silently */</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-white">Runtime.getRuntime().exec(</span><span class="text-blue-400">new</span> <span class="text-white">String[]{</span><span class="text-yellow-400">"su"</span><span class="text-white">, </span><span class="text-yellow-400">"-c"</span><span class="text-white">, </span><span class="text-yellow-400">"adb install -r "</span> <span class="text-white">+ strValidateFile}).waitFor();</span><br>
+                    }
+                </div>
+            </div>
+
+            <div class="mb-10 pl-4 border-l border-gray-800">
+                <h3 class="text-xl font-bold text-orange-500 mb-2">4. الاحتيال المالي ونشر الفيروس </h3>
+                <p class="text-gray-400 mb-4 text-sm">القدرة على إرسال رسائل نصية في الخلفية للاشتراك في خدمات ذات تكلفة عالية أو إرسال رابط الفيروس لجهات الاتصال.</p>
+                <img src="imag-2.png" alt="SMS Fraud" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full">
+            </div>
+
+            <div class="mb-10 pl-4 border-l border-gray-800">
+                <h3 class="text-xl font-bold text-orange-500 mb-2">5. التدمير الذاتي ومكافحة التحليل (Anti-Analysis)</h3>
+                <p class="text-gray-400 mb-4 text-sm">لحماية الفيروس من الانكشاف، برمج المخترق آلية تمسح جميع بيانات التطبيق من جذورها لمحو الأدلة عند الشك بوجود بيئة تحليل.</p>
+                <img src="ima-6.png" alt="Clear App Data" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full">
+                <div class="bg-black border border-gray-800 p-4 rounded-md font-mono text-sm overflow-x-auto code-block">
+                    <span class="text-white">Runtime.getRuntime().exec(</span><span class="text-yellow-400">"pm clear "</span> <span class="text-white">+ context.getPackageName().trim());</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="mono text-2xl text-[#4ade80] mb-6 border-b border-[#4ade80]/20 pb-2">03_خوادم التحكم والتشويش (C2 Servers)</h2>
+            <p class="mb-4 text-sm text-gray-400">في الكلاس <span class="mono text-white">com.mod.libs.TTR.x</span>، تُستخدم خوارزمية تشفير <span class="mono">BigInteger</span> لإخفاء الروابط. بعد فك التشفير، تم استخراج الخوادم التالية:</p>
+            
+            <div class="space-y-4">
+                <div class="flex gap-4 items-start border-r-2 border-red-600 pr-4">
+                    <span class="text-red-500 font-bold mono">[C2_MAIN]</span>
+                    <div>
+                        <h4 class="text-white font-bold mono">http://portalmod.xyz/</h4>
+                        <p class="text-xs text-gray-500">السيرفر الرئيسي لسحب الأوامر.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start border-r-2 border-orange-500 pr-4">
+                    <span class="text-orange-500 font-bold mono">[PAYLOAD]</span>
+                    <div>
+                        <h4 class="text-white font-bold mono">https://watsbplus.com/updategold</h4>
+                        <p class="text-xs text-gray-500">سيرفر الإسقاط (موجود في كلاس 3arabB58.Update).</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start border-r-2 border-yellow-500 pr-4">
+                    <span class="text-yellow-500 font-bold mono">[FALLBACK]</span>
+                    <div>
+                        <h4 class="text-white font-bold mono">https://tranggaken.wordpress.com/mocx1/</h4>
+                        <p class="text-xs text-gray-500">السيرفر الاحتياطي لتلقي الأوامر.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 terminal-bg p-6 rounded-lg border-gray-800">
+            <h2 class="mono text-xl text-[#4ade80] mb-4">04_البصمة الرقمية </h2>
+            <p class="text-sm text-gray-400 mb-4">إذا تطابقت هذه البصمات مع نسخة التطبيق، فهو مصاب بالبرمجية الخبيثة المؤكدة:</p>
+            <div class="bg-black p-4 rounded border border-gray-800 font-mono text-sm space-y-2">
+                <div>
+                    <span class="text-gray-500">SHA-256:</span> 
+                    <span class="text-red-400 break-all">f4d2052b6c053bb6bbb492f44a802235123bb42236045173959beaffce0c2c8d</span>
+                </div>
+                <div>
+                    <span class="text-gray-500">MD5:</span> 
+                    <span class="text-yellow-400 break-all">1df7d6cea5a3dcf78d7e58652ce49c84</span>
+                </div>
+            </div>
+        </section>
+
+                    <h2 class="mono text-2xl text-[#ff0000] mb-4 border-b border-[#ff0000]/20 pb-2">06_تنويه !</h2>
+            <p class="text-gray-400 leading-relaxed">
+                كل هذي التحليلات والتفكيكات هي مستعملة من طرف اشخاص فاهمين وش يعملون وفي مختبارات مغلوقة تماما فان لم تكن تفقه في مجال الهندسة العكسية واتحليل البرمجيات من فضلك لاتجرب اي شي وكل , هذي الاعمال بهدف الحماية وتوعية المجتمع بخطر البرامج المكركة والمعدلة
+            </p> 
+        <footer class="mt-20 pt-8 border-t border-gray-900 text-center font-mono text-xs text-gray-600">
+
+        
+
+        <footer class="mt-10 pt-8 border-t border-gray-900 text-center font-mono text-xs text-gray-600">
+            <p>CONCLUDING RESEARCH LOG // SECURE LAB ENVIRONMENT</p>
+            <p class="mt-2 text-[#4b7c5a]">WALHACK & VAYLO SEC-LABS © 2026</p>
+        </footer>
+    </main>
+
+</body>
+</html>

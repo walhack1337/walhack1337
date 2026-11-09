@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalHack & Vaylo | ABOUT US</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            color: #22c55e;
+        }
+        .logo-font { 
+            font-family: 'VT323', monospace;
+            letter-spacing: 2px;
+        }
+        .terminal {
+            font-family: 'VT323', monospace;
+            background: #0a0f0a;
+            border: 1px solid #4ade80;
+        }
+        .accent { color: #4ade80; }
+        .text-soft { color: #86efac; }
+        .text-muted { color: #4b7c5a; }
+        
+        .scanline {
+            position: relative;
+        }
+        .scanline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(74, 222, 128, 0.06), transparent);
+            animation: scan 6s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scan {
+            0% { transform: translateY(-120%); }
+            100% { transform: translateY(350%); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="border-b border-[#4ade80]/20 bg-black/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-4xl">⚡</span>
+                <span class="logo-font text-4xl font-bold tracking-widest accent">WALHACK<span class="text-white">&</span>VAYLO</span>
+            </div>
+            <div class="flex gap-8 text-lg font-medium">
+                <a href="index.html" class="hover:text-[#4ade80] transition">HOME</a>
+                <a href="about.html" class="accent border-b-2 border-[#4ade80]">ABOUT</a>
+                <a href="projects.html" class="hover:text-[#4ade80] transition">PROJECTS</a>
+                <a href="research.html" class="hover:text-[#4ade80] transition">RESEARCH</a>
+                <a href="contact.html" class="hover:text-[#4ade80] transition">CONTACT</a>
+            </div>
+            <div class="text-[#4ade80] text-sm font-mono">STATUS: ONLINE</div>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto px-8 py-20">
+        <div class="text-center mb-16">
+            <div class="inline-block px-6 py-2 bg-black border border-[#4ade80]/30 text-[#4b7c5a] font-mono text-sm tracking-widest mb-6">
+                SYSTEM PROFILE // ACCESS LEVEL: ROOT
+            </div>
+            <h1 class="logo-font text-7xl font-bold mb-4 text-white">WHO ARE WE?</h1>
+            <p class="text-xl text-soft max-w-2xl mx-auto">
+                فريق متخصص في الهندسة العكسية والأمان السيبراني
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- WalHack Card -->
+            <div class="terminal p-10 rounded-2xl scanline">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-20 h-20 bg-[#4ade80] text-black rounded-2xl flex items-center justify-center text-5xl font-bold border-4 border-black">W</div>
+                    <div>
+                        <h2 class="logo-font text-5xl font-bold accent">WALHACK</h2>
+                        <p class="text-[#4b7c5a] font-mono">Software Analyst & Reverse Engineer</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6 text-lg leading-relaxed text-white">
+                    <p>
+                        محلل برمجيات ومهندس عكسي متخصص في تحليل البرامج الضارة والبرمجيات المغلقة المصدر.
+                    </p>
+                    <p>
+                        خبرة واسعة في:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-soft">
+                        <li>تحليل الملفات التنفيذية (PE, ELF)</li>
+                        <li>هندسة عكسية للتطبيقات</li>
+                        <li>كتابة أدوات تحليل مخصصة</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-10 pt-6 border-t border-[#4ade80]/30 font-mono text-sm">
+                    <span class="accent">STATUS:</span> 
+                    <span class="text-white">ACTIVE • RESEARCHING</span>
+                </div>
+            </div>
+
+            <!-- Vaylo Card -->
+            <div class="terminal p-10 rounded-2xl scanline">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-20 h-20 bg-[#4ade80] text-black rounded-2xl flex items-center justify-center text-5xl font-bold border-4 border-black">V</div>
+                    <div>
+                        <h2 class="logo-font text-5xl font-bold accent">VAYLO</h2>
+                        <p class="text-[#4b7c5a] font-mono">Binary Exploit Developer & Reverse Engineer</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6 text-lg leading-relaxed text-white">
+                    <p>
+                        مطور استغلالات ثنائية ومهندس عكسي متخصص في اكتشاف الثغرات واستغلالها.
+                    </p>
+                    <p>
+                        خبرة  في:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-soft">
+                        <li>كتابة Exploits للثغرات (Buffer Overflow, Use-After-Free...)</li>
+                        <li>هندسة عكسية  والبرامج</li>
+                        <li>Fuzzing وتحليل الثغرات الأمنية</li>
+                        <li>Bypass لآليات الحماية (ASLR, DEP, CFG...)</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-10 pt-6 border-t border-[#4ade80]/30 font-mono text-sm">
+                    <span class="accent">STATUS:</span> 
+                    <span class="text-white">ACTIVE • EXPLOITING</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mission Section -->
+        <div class="mt-20 terminal p-10 rounded-3xl text-center">
+            <h3 class="logo-font text-4xl mb-6 text-white">مهمتنا</h3>
+            <p class="max-w-3xl mx-auto text-xl leading-relaxed text-soft">
+                فهم عميق للبرمجيات من الداخل، اكتشاف الثغرات قبل الآخرين، 
+                ومشاركة المعرفة مع مجتمع الأمان السيبراني بطريقة احترافية ومنظمة.
+            </p>
+            <div class="mt-8 text-[#4b7c5a] font-mono text-sm tracking-widest">
+                "KNOWLEDGE IS POWER • REVERSE IT ALL"
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-[#4b7c5a] font-mono text-sm py-10 border-t border-[#4ade80]/20">
+        © 2026 WALHACK & VAYLO LABS • ALL RIGHTS RESERVED • NO MERCY FOR BAD CODE
+    </footer>
+
+</body>
+</html>
