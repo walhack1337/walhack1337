@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Malware Analysis | WA5_Abo3rab</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=VT323&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e2e8f0;
+        }
+        .mono { font-family: 'VT323', monospace; }
+        .accent-border { border-right: 4px solid #a78bfa; }
+        .terminal-bg { background: rgba(15, 15, 15, 0.9); border: 1px solid rgba(167, 139, 250, 0.24); }
+        .glow-text { text-shadow: 0 0 10px rgba(74, 222, 128, 0.5); }
+        .code-block { direction: ltr; text-align: left; }
+    </style>
+<style>
+      :root{color-scheme:dark} body{background:radial-gradient(ellipse at 12% 0%,rgba(105,47,183,.22),transparent 42%),radial-gradient(ellipse at 92% 30%,rgba(29,104,155,.16),transparent 44%),#070611!important;color:#f4f0ff!important;line-height:1.85!important}
+      .terminal-bg{background:linear-gradient(135deg,rgba(19,16,38,.94),rgba(8,17,35,.9))!important;border:1px solid rgba(167,123,255,.28)!important;box-shadow:0 16px 50px rgba(0,0,0,.22)}
+      .accent-border{border-right:4px solid #a78bfa!important}.glow-text{text-shadow:0 0 18px rgba(168,121,255,.48)!important}
+      a{color:#67dff7}.mono{letter-spacing:.02em}.code-block{border-color:rgba(167,139,250,.25)!important;border-radius:12px!important}
+      img{max-width:100%;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(167,139,250,.28);background:#090817}
+      .walhack-report-nav{max-width:1120px;margin:0 auto 30px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid rgba(167,139,250,.24);border-radius:12px;background:rgba(13,10,29,.78);backdrop-filter:blur(16px)}
+      .walhack-report-brand{font:800 16px Inter,sans-serif;letter-spacing:2px;color:#fff;text-decoration:none}.walhack-report-brand span{color:#a78bfa}.walhack-report-back{font:12px 'VT323',monospace;color:#67dff7;text-decoration:none}.walhack-report-back:hover{color:#fff}
+      @media(max-width:640px){body{padding:16px!important}.walhack-report-nav{padding:12px;flex-wrap:wrap}.walhack-report-brand{font-size:14px}}
+    
+.missing-report-image{margin:12px 0;padding:18px;border:1px dashed rgba(167,139,250,.38);border-radius:10px;background:rgba(20,14,42,.62);color:#b9a8dc;font:12px Inter,sans-serif;text-align:center}.missing-report-image[hidden]{display:none}
+</style><style>.walhack-report-brand{display:inline-flex!important;align-items:center;gap:10px;text-decoration:none!important}.report-brand-name{font-family:Orbitron,Inter,sans-serif;font-weight:800;letter-spacing:2px;color:#fff}.cyber-logo-mark{position:relative;display:inline-block;font-family:Orbitron,sans-serif;font-size:32px;font-weight:900;line-height:.9;letter-spacing:-5px;color:#c476ff;transform:scaleX(1.18);-webkit-text-stroke:1px #d9a7ff;text-shadow:1px 1px 0 #7100b8,2px 2px 0 #5b0792,3px 3px 0 #3d0668,0 0 8px #9d00ff,0 0 19px #9d00ff;animation:report-glitch 6s infinite steps(1)}.cyber-logo-mark:before,.cyber-logo-mark:after{content:attr(data-text);position:absolute;inset:0;opacity:0}.cyber-logo-mark:before{color:#00e5ff;clip-path:inset(15% 0 62% 0);animation:report-cyan 6s infinite steps(1)}.cyber-logo-mark:after{color:#9d00ff;clip-path:inset(62% 0 12% 0);animation:report-violet 6s infinite steps(1)}@keyframes report-glitch{0%,94%,100%{transform:none}95%{transform:translateX(2px)}96%{transform:translateX(-2px)}}@keyframes report-cyan{0%,94%,100%{opacity:0}95%{opacity:.8;transform:translate(3px,-1px)}}@keyframes report-violet{0%,94%,100%{opacity:0}95%{opacity:.8;transform:translate(-3px,1px)}}@media(prefers-reduced-motion:reduce){.cyber-logo-mark{animation:none!important}}</style></head>
+<body class="p-4 md:p-12"><header class="walhack-report-nav"><a class="walhack-report-brand" href="index.html"><span aria-hidden="true" class="cyber-logo-mark" data-text="W">W</span><span class="report-brand-name">WALHACK</span></a><a class="walhack-report-back" href="index.html">← BACK TO WALHACK RESEARCH</a></header>
+<div class="max-w-5xl mx-auto mb-10 flex justify-between items-center">
+<a class="mono text-[#a78bfa] hover:underline text-xl" href="index.html">← العودة إلى أبحاث WALHACK</a>
+<div class="text-right">
+</div>
+</div>
+<main class="max-w-5xl mx-auto">
+<header class="mb-12 accent-border pr-6">
+<h1 class="mono text-5xl md:text-6xl text-white font-bold mb-2 glow-text">ANALYSIS: WA5_Abo3rab_v13.95</h1>
+<p class="text-[#a78bfa] font-mono text-lg">Subject: Modded WhatsApp Decompilation &amp; Malware Extraction</p>
+</header>
+<section class="mb-12 grid md:grid-cols-2 gap-6">
+<div class="terminal-bg p-6 rounded-lg">
+<h2 class="mono text-xl text-[#a78bfa] mb-4 border-b border-[#a78bfa]/20 pb-2">01_معلومات العينة </h2>
+<ul class="font-mono text-sm space-y-3 text-gray-300">
+<li><span class="text-gray-500">File Name:</span> <span class="text-white">WA5_Abo3rab_v13.95.apk</span></li>
+<li><span class="text-gray-500">App Type:</span> WhatsApp Mod (تطبيق معدل)</li>
+<li><span class="text-gray-500">Actual Threat:</span> Hybrid Malware <span class="text-red-400">(Adware, Dropper, SMS Fraud)</span></li>
+<li><span class="text-gray-500">هاذي الصفحة المسؤولة على هذا البرنامج الخبيث :</span> <a class="text-blue-400 hover:underline" href="https://t.me/abu3rab_apk" target="_blank">Telegram (تطبيقات الذهبي ابو عربً)</a></li>
+</ul>
+</div>
+<div class="terminal-bg p-6 rounded-lg border-red-900/50">
+<h2 class="mono text-xl text-red-400 mb-4 border-b border-red-500/20 pb-2">الملخص التنفيذي </h2>
+<p class="text-sm text-gray-400 leading-relaxed">
+                    أثبت التحليل الديناميكي والثابت أن التطبيق يحتوي على حزم برمجية خبيثة ومحقونة (مثل <span class="text-yellow-400 mono">com.mod.libs</span>). 
+                    تقوم هذه البرمجية بالاتصال بخوادم تحكم (C2) مشفرة، وتزرع متصفحات خفية لتوليد زيارات إعلانية وهمية، بالإضافة إلى امتلاكها صلاحيات لتثبيت تطبيقات أخرى بصلاحيات الروت Root بصمت، وآلية لمسح آثارها (Anti-Analysis) عند اكتشافها.
+                </p>
+</div>
+</section>
+<section class="mb-12">
+<h2 class="mono text-3xl text-[#a78bfa] mb-8 border-b border-[#a78bfa]/20 pb-2">02_الأدلة الجنائية </h2>
+<div class="mb-10 pl-4 border-l border-gray-800">
+<h3 class="text-xl font-bold text-orange-500 mb-2">1. انتهاك الخصوصية والأذونات الكارثية</h3>
+<p class="text-gray-400 mb-4 text-sm">من خلال تحليل ملف <span class="mono text-white">AndroidManifest.xml</span>، تبين أن التطبيق يطلب صلاحيات لا تتناسب مطلقاً مع وظيفة المراسلة:</p>
+<img alt="Permissions" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full" onerror="this.style.display='none';this.nextElementSibling.hidden=false;" src="imag-3.png"/><div class="missing-report-image" hidden="True">Original evidence image not included in this preview: imag-3.png</div>
+<ul class="list-disc list-inside text-sm text-gray-300 space-y-2 mb-4">
+<li><span class="text-red-400 mono">REQUEST_INSTALL_PACKAGES:</span> لتثبيت تطبيقات خارجية بصمت أساس الـ Dropper.</li>
+<li><span class="text-red-400 mono">SYSTEM_ALERT_WINDOW:</span> رسم نوافذ فوق التطبيقات Clickjacking.</li>
+<li><span class="text-red-400 mono">KILL_BACKGROUND_PROCESSES:</span> تعطيل آليات الحماية.</li>
+<li><span class="text-red-400 mono">READ_CALL_LOG &amp; ANSWER_PHONE_CALLS:</span> التجسس على المكالمات والرد التلقائي.</li>
+</ul>
+</div>
+<div class="mb-10 pl-4 border-l border-gray-800">
+<h3 class="text-xl font-bold text-orange-500 mb-2">2. منظومة الاحتيال الإعلاني </h3>
+<p class="text-gray-400 mb-4 text-sm">في الكلاس <span class="mono text-white">com.mod.libs.TAd</span>، تم العثور على آلية لتوليد الزيارات الوهمية وإنشاء متصفحات خفية، مع تزوير هوية المتصفح لخداع خوادم الإعلانات.</p>
+<img alt="Ad Fraud Code" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full" onerror="this.style.display='none';this.nextElementSibling.hidden=false;" src="imag-1.png"/><div class="missing-report-image" hidden="True">Original evidence image not included in this preview: imag-1.png</div>
+<div class="bg-black border border-gray-800 p-4 rounded-md font-mono text-sm overflow-x-auto code-block">
+<span class="text-gray-600">// User-Agent Spoofing</span><br/>
+<span class="text-white">webViewTrfx.getSettings().setUserAgentString(</span><br/>
+                        <span class="text-yellow-400">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.57.2..."</span><span class="text-white">);</span>
+</div>
+</div>
+<div class="mb-10 pl-4 border-l border-gray-800">
+<h3 class="text-xl font-bold text-orange-500 mb-2">3. التثبيت الصامت للحمولات </h3>
+<p class="text-gray-400 mb-4 text-sm">يحتوي الكلاس <span class="mono text-white">com.mod.libs.TTR</span> على دوال قاتلة تثبت نية زرع برمجيات أخرى باستغلال صلاحيات الروت.</p>
+<img alt="Root Install" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full" onerror="this.style.display='none';this.nextElementSibling.hidden=false;" src="imag-5.png"/><div class="missing-report-image" hidden="True">Original evidence image not included in this preview: imag-5.png</div>
+<div class="bg-black border border-gray-800 p-4 rounded-md font-mono text-sm overflow-x-auto code-block">
+<span class="text-blue-400">public void</span> <span class="text-cyan-300">InstallApkRooted</span>(<span class="text-white">String str</span>) {<br/>
+                        <span class="text-gray-500">/* Executes su command to install APK silently */</span><br/>
+                        <span class="text-white">Runtime.getRuntime().exec(</span><span class="text-blue-400">new</span> <span class="text-white">String[]{</span><span class="text-yellow-400">"su"</span><span class="text-white">, </span><span class="text-yellow-400">"-c"</span><span class="text-white">, </span><span class="text-yellow-400">"adb install -r "</span> <span class="text-white">+ strValidateFile}).waitFor();</span><br/>
+                    }
+                </div>
+</div>
+<div class="mb-10 pl-4 border-l border-gray-800">
+<h3 class="text-xl font-bold text-orange-500 mb-2">4. الاحتيال المالي ونشر الفيروس </h3>
+<p class="text-gray-400 mb-4 text-sm">القدرة على إرسال رسائل نصية في الخلفية للاشتراك في خدمات ذات تكلفة عالية أو إرسال رابط الفيروس لجهات الاتصال.</p>
+<img alt="SMS Fraud" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full" onerror="this.style.display='none';this.nextElementSibling.hidden=false;" src="imag-2.png"/><div class="missing-report-image" hidden="True">Original evidence image not included in this preview: imag-2.png</div>
+</div>
+<div class="mb-10 pl-4 border-l border-gray-800">
+<h3 class="text-xl font-bold text-orange-500 mb-2">5. التدمير الذاتي ومكافحة التحليل (Anti-Analysis)</h3>
+<p class="text-gray-400 mb-4 text-sm">لحماية الفيروس من الانكشاف، برمج المخترق آلية تمسح جميع بيانات التطبيق من جذورها لمحو الأدلة عند الشك بوجود بيئة تحليل.</p>
+<img alt="Clear App Data" class="mb-4 rounded border border-gray-700 shadow-lg max-w-full" onerror="this.style.display='none';this.nextElementSibling.hidden=false;" src="ima-6.png"/><div class="missing-report-image" hidden="True">Original evidence image not included in this preview: ima-6.png</div>
+<div class="bg-black border border-gray-800 p-4 rounded-md font-mono text-sm overflow-x-auto code-block">
+<span class="text-white">Runtime.getRuntime().exec(</span><span class="text-yellow-400">"pm clear "</span> <span class="text-white">+ context.getPackageName().trim());</span>
+</div>
+</div>
+</section>
+<section class="mb-12">
+<h2 class="mono text-2xl text-[#a78bfa] mb-6 border-b border-[#a78bfa]/20 pb-2">03_خوادم التحكم والتشويش (C2 Servers)</h2>
+<p class="mb-4 text-sm text-gray-400">في الكلاس <span class="mono text-white">com.mod.libs.TTR.x</span>، تُستخدم خوارزمية تشفير <span class="mono">BigInteger</span> لإخفاء الروابط. بعد فك التشفير، تم استخراج الخوادم التالية:</p>
+<div class="space-y-4">
+<div class="flex gap-4 items-start border-r-2 border-red-600 pr-4">
+<span class="text-red-500 font-bold mono">[C2_MAIN]</span>
+<div>
+<h4 class="text-white font-bold mono">http://portalmod.xyz/</h4>
+<p class="text-xs text-gray-500">السيرفر الرئيسي لسحب الأوامر.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start border-r-2 border-orange-500 pr-4">
+<span class="text-orange-500 font-bold mono">[PAYLOAD]</span>
+<div>
+<h4 class="text-white font-bold mono">https://watsbplus.com/updategold</h4>
+<p class="text-xs text-gray-500">سيرفر الإسقاط (موجود في كلاس 3arabB58.Update).</p>
+</div>
+</div>
+<div class="flex gap-4 items-start border-r-2 border-yellow-500 pr-4">
+<span class="text-yellow-500 font-bold mono">[FALLBACK]</span>
+<div>
+<h4 class="text-white font-bold mono">https://tranggaken.wordpress.com/mocx1/</h4>
+<p class="text-xs text-gray-500">السيرفر الاحتياطي لتلقي الأوامر.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-12 terminal-bg p-6 rounded-lg border-gray-800">
+<h2 class="mono text-xl text-[#a78bfa] mb-4">04_البصمة الرقمية </h2>
+<p class="text-sm text-gray-400 mb-4">إذا تطابقت هذه البصمات مع نسخة التطبيق، فهو مصاب بالبرمجية الخبيثة المؤكدة:</p>
+<div class="bg-black p-4 rounded border border-gray-800 font-mono text-sm space-y-2">
+<div>
+<span class="text-gray-500">SHA-256:</span>
+<span class="text-red-400 break-all">f4d2052b6c053bb6bbb492f44a802235123bb42236045173959beaffce0c2c8d</span>
+</div>
+<div>
+<span class="text-gray-500">MD5:</span>
+<span class="text-yellow-400 break-all">1df7d6cea5a3dcf78d7e58652ce49c84</span>
+</div>
+</div>
+</section>
+<h2 class="mono text-2xl text-[#ff0000] mb-4 border-b border-[#ff0000]/20 pb-2">06_تنويه !</h2>
+<p class="text-gray-400 leading-relaxed">
+                كل هاذه التحليلات والمعلومات يتم عملها داخل بيئة مختبرية امنة ومغلقة وبهدف كشف المخاطر والتهديدات الامنية
+            </p>
+<footer class="mt-20 pt-8 border-t border-gray-900 text-center font-mono text-xs text-gray-600">
+<footer class="mt-10 pt-8 border-t border-gray-900 text-center font-mono text-xs text-gray-600">
+<p>CONCLUDING RESEARCH LOG // SECURE LAB ENVIRONMENT</p>
+<p class="mt-2 text-[#8b5cf6]">WALHACK  • SEC-LABS © 2026</p>
+</footer>
+</footer></main>
+</body>
+</html>

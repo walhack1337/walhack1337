@@ -1,0 +1,468 @@
+/* ==========================================================
+   WALHACK DESIGN TOKENS — edit colors and effects here
+   ========================================================== */
+:root{
+  /* 01 — Core palette */
+  --bg:#030208;
+  --cyber-purple:#9d00ff;
+  --cyber-cyan:#00e5ff;
+  --text-white:#ffffff;
+  --text:#ffffff;
+  --muted:#a8a2bd;
+  /* Compatibility aliases used by existing components */
+  --purple:var(--cyber-purple);
+  --cyan:var(--cyber-cyan);
+  --mono:"Share Tech Mono","Space Mono",monospace;
+  --sans:"Inter",sans-serif;
+  /* 02 — Wordmark */
+  --logo-gradient:linear-gradient(to bottom,#ffffff 40%,#c476ff 100%);
+  --logo-glow:drop-shadow(0 0 15px rgba(157,0,255,.75));
+  --logo-glitch-cyan:var(--cyber-cyan);
+  --logo-glitch-purple:var(--cyber-purple);
+  /* 03 — Glass HUD */
+  --glass-bg:rgba(8,5,18,.55);
+  --glass-border:rgba(0,229,255,.25);
+  --glass-blur:12px;
+  --glass-shadow:0 0 20px rgba(0,229,255,.1),inset 0 0 15px rgba(157,0,255,.05);
+  --glass-hover-shadow:0 0 25px rgba(0,229,255,.35),inset 0 0 10px rgba(0,229,255,.1);
+  /* 04 — Ambient motion */
+  --float-distance:7px;
+  --float-duration:7s;
+}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}a{color:inherit;text-decoration:none}.noise{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}.site-header{height:78px;position:fixed;z-index:30;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,76px);background:#050510bb;border-bottom:1px solid #8f75ff29;backdrop-filter:blur(18px)}.brand{display:flex;align-items:center;gap:12px;min-width:180px}.brand-mark{font-size:38px;font-weight:800;color:#8b35ff;text-shadow:0 0 24px #7929ff;transform:skew(-10deg)}.brand-name{font-weight:800;letter-spacing:2px;font-size:18px}.brand-name small{display:block;font:10px var(--mono);letter-spacing:3px;color:#aaa5c9;margin-top:4px}.main-nav{display:flex;align-items:center;gap:clamp(14px,2vw,34px)}.main-nav a{font-size:12px;color:#d4d0e8;transition:.25s;white-space:nowrap}.main-nav a:hover,.main-nav a.active{color:white;text-shadow:0 0 12px var(--purple)}.main-nav a.active:after{content:"";display:block;height:2px;background:linear-gradient(90deg,var(--purple),var(--cyan));margin-top:10px;box-shadow:0 0 12px var(--purple)}.header-cta{font:12px var(--mono);border:1px solid var(--cyan);border-radius:9px;padding:12px 16px;color:#b9f7ff;box-shadow:0 0 20px #06b6d422;white-space:nowrap}.menu-toggle{display:none;background:none;border:0;padding:8px}.menu-toggle span{display:block;width:24px;height:2px;background:white;margin:5px}.hero{min-height:850px;height:100svh;max-height:1100px;position:relative;isolation:isolate;overflow:hidden;background:#05040d}.hero-image{position:absolute;inset:0;background:url("assets/hero-character.png") 68% center/auto 100% no-repeat;z-index:-3;opacity:.94}.hero-vignette{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#05030f55,transparent 54%,#03081433),linear-gradient(0deg,#070611 0%,transparent 27%,#05040d55 100%)}.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.1;background-image:linear-gradient(#a082ff2e 1px,transparent 1px),linear-gradient(90deg,#a082ff2e 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(transparent,black 20%,black 80%,transparent)}.hero-copy{position:absolute;left:clamp(24px,8vw,130px);top:25%;max-width:550px;z-index:2}.eyebrow,.section-label{font:11px var(--mono);letter-spacing:2px;color:#b9f8ff}.eyebrow{display:inline-flex;gap:14px;align-items:center;border:1px solid #8747df88;border-radius:6px;padding:10px 15px;background:#100b2488;backdrop-filter:blur(10px)}.eyebrow i{width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 12px var(--cyan)}.eyebrow b{color:#b86bff}.hero-kicker{font:14px var(--mono);letter-spacing:9px;margin:28px 0 0 6px;color:#e4d9ff}.hero h1{font-size:clamp(66px,9vw,136px);line-height:.9;letter-spacing:-8px;margin:12px 0 20px;font-weight:800;font-style:italic;text-shadow:0 0 32px #792aff88;background:linear-gradient(100deg,#fff 2%,#d8b4fe 35%,#8b5cf6 67%,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-tagline{font:clamp(16px,2vw,24px) var(--mono);color:#eee8ff;margin:0 0 18px}.hero-tagline em{color:#c084fc;font-style:normal}.cursor{color:var(--cyan);animation:blink 1s steps(2) infinite}.hero-description{font:13px/1.9 var(--mono);color:#c8c5df;max-width:420px}.hero-actions{display:flex;gap:14px;align-items:center;margin-top:30px}.button{display:inline-flex;align-items:center;justify-content:center;gap:18px;padding:15px 20px;border-radius:10px;font:12px var(--mono);transition:.25s}.button:hover{transform:translateY(-3px)}.button-primary{background:linear-gradient(110deg,#6720d7,#a21caf);border:1px solid #c084fc;box-shadow:0 0 25px #9333ea55;color:white}.button-primary:hover{box-shadow:0 0 35px #a855f799}.button-ghost{color:#e4ddfa}.play-icon{border:1px solid #a78bfa;border-radius:50%;width:30px;height:30px;display:grid;place-items:center;font-size:10px;color:#d8b4fe}.glass-panel{background:linear-gradient(135deg,#12102bbd,#0811237a);border:1px solid #a582ff57;box-shadow:inset 0 1px #ffffff12,0 12px 45px #02010a66;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.terminal{position:absolute;right:8%;top:18%;width:310px;padding:17px 20px;border-radius:12px;font:11px/1.8 var(--mono);color:#8cecf5;box-shadow:0 0 30px #06b6d422}.terminal-top{display:flex;align-items:center;gap:5px;margin-bottom:13px}.terminal-top span{width:7px;height:7px;border-radius:50%;background:#a855f7}.terminal-top span:nth-child(2){background:#22d3ee}.terminal-top span:nth-child(3){background:#64748b}.terminal-top small{margin-left:auto;color:#8985a8}.terminal p{margin:4px 0}.terminal p i{color:#c084fc;font-style:normal}.terminal strong{color:white}.terminal-cursor{color:var(--cyan);animation:blink 1s steps(2) infinite}.hero-social{position:absolute;right:3%;top:43%;display:grid;padding:7px;border:1px solid #9b69fa88;border-radius:12px;background:#09071988;backdrop-filter:blur(15px)}.hero-social a{width:38px;height:42px;display:grid;place-items:center;font:12px var(--mono);color:#e9ddff}.hero-social a:hover{color:var(--cyan)}.hero-cards{position:absolute;left:7.5%;right:7.5%;bottom:10%;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.feature-card{min-height:104px;padding:18px;display:flex;align-items:center;gap:14px;border:1px solid #8b5cf688;border-radius:12px;background:linear-gradient(120deg,#130e2abf,#071426c9);backdrop-filter:blur(16px);transition:.3s}.feature-card:hover{transform:translateY(-7px);border-color:var(--cyan);box-shadow:0 12px 35px #06b6d455}.feature-icon{font:24px var(--mono);color:#67e8f9;text-shadow:0 0 15px #22d3ee;min-width:32px}.feature-card strong{display:block;font-size:13px}.feature-card small{display:block;font-size:10px;color:#bcb7d2;margin-top:7px;line-height:1.5}.card-arrow{margin-left:auto;color:#a5f3fc;font-size:18px}.scroll-cue{position:absolute;bottom:2.5%;left:50%;transform:translateX(-50%);font:9px var(--mono);letter-spacing:2px;color:#b9b3d1;white-space:nowrap}.section{padding:120px clamp(24px,8vw,130px);position:relative}.section-heading{max-width:720px;margin-bottom:48px}.section-label{color:#a78bfa;margin:0 0 16px}.section h2,.contact-section h2{font-size:clamp(34px,5vw,62px);letter-spacing:-2px;line-height:1.08;margin:0 0 18px}.section h2 em,.contact-section h2 em{font-style:normal;color:#b56aff;text-shadow:0 0 25px #9333ea55}.section-intro{font-size:14px;line-height:1.9;color:var(--muted);max-width:650px}.about-section{background:radial-gradient(ellipse at 85% 45%,#32105a44,transparent 40%),#080713}.about-grid,.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.about-panel,.ai-card,.achievement-card{padding:28px;border-radius:14px;position:relative;overflow:hidden;transition:.3s}.about-panel{min-height:235px}.about-panel:hover,.project-card:hover,.ai-card:hover,.achievement-card:hover{transform:translateY(-6px);border-color:#9c75ff;box-shadow:0 18px 45px #6415a533}.panel-index{position:absolute;right:20px;top:18px;font:11px var(--mono);color:#625b7d}.panel-symbol,.ai-card-icon{font:32px var(--mono);color:#a78bfa;margin-bottom:24px;text-shadow:0 0 20px #9333ea}.about-panel h3,.project-content h3,.ai-card h3,.achievement-card h3{font-size:19px;margin:0 0 12px}.about-panel p,.project-content p,.ai-card p,.achievement-card p{font-size:13px;line-height:1.8;color:var(--muted);margin:0}.projects-section{background:linear-gradient(180deg,#080713,#0b0819)}.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project-card{border-radius:14px;overflow:hidden;transition:.3s}.project-topline{display:flex;justify-content:space-between;gap:8px;padding:17px 18px 0;align-items:center}.project-type{font:9px var(--mono);letter-spacing:1px;color:#c4b5fd}.status{font:8px var(--mono);padding:6px 8px;border-radius:4px}.status-live{color:#67e8c2;background:#0b4a3944;border:1px solid #34d39966}.status-progress{color:#f0abfc;background:#701a7544;border:1px solid #e879f966}.status-study{color:#93c5fd;background:#1e3a8a44;border:1px solid #60a5fa66}.project-art{height:165px;margin:16px 18px 0;border-radius:9px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;font:700 25px var(--mono);letter-spacing:3px}.project-art:before,.project-art:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #c084fc55;border-radius:50%;box-shadow:0 0 35px #9333ea44}.project-art:after{width:130px;height:130px;border-color:#22d3ee66}.project-art span{color:#67e8f9;font-size:15px;margin-right:8px}.project-art b{color:#e9d5ff;text-shadow:0 0 20px #a855f7}.project-art i{position:absolute;right:14px;bottom:10px;font:10px var(--mono);color:#9c91bd}.art-brain{background:radial-gradient(circle,#4c1d9555,transparent 65%),linear-gradient(135deg,#120c29,#07182a)}.art-agent{background:radial-gradient(circle,#07598566,transparent 65%),linear-gradient(135deg,#160b2c,#071526)}.art-re{background:radial-gradient(circle,#6b21a855,transparent 65%),linear-gradient(135deg,#170d27,#0a1124)}.project-content{padding:22px 20px 24px}.project-content p{min-height:90px}.tag-list{display:flex;flex-wrap:wrap;gap:6px;margin:17px 0}.tag-list span{font:9px var(--mono);padding:6px 8px;color:#c4b5fd;border:1px solid #8b5cf644;border-radius:4px}.text-link{display:inline-flex;gap:12px;color:#a5f3fc;font:11px var(--mono);margin-top:6px}.muted-link{color:#c4b5fd;opacity:.8}.research-section{background:radial-gradient(ellipse at 15% 55%,#1e1b4b66,transparent 40%),#080713}.research-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}.research-main{padding:35px;border-radius:16px;display:grid;grid-template-columns:180px 1fr;align-items:center;gap:30px;min-height:300px}.research-main h3{font-size:27px;line-height:1.3;margin:0 0 14px}.research-main h3 em{font-style:normal;color:#c084fc}.research-main p:not(.section-label){font-size:12px;line-height:1.8;color:var(--muted);margin-bottom:22px}.button-secondary{border:1px solid #8b5cf6;color:#e9d5ff;padding:12px 15px}.research-orbit{width:150px;height:150px;border:1px solid #8b5cf688;border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 45px #7c3aed33,inset 0 0 35px #7c3aed22}.research-orbit:before,.research-orbit:after{content:"";position:absolute;inset:15px;border:1px dashed #22d3ee77;border-radius:50%;animation:spin 18s linear infinite}.research-orbit:after{inset:-10px;border-color:#a855f766;animation-direction:reverse}.research-orbit span{font-size:55px;font-weight:800;color:#a855f7;text-shadow:0 0 25px #9333ea}.research-orbit i,.research-orbit b{position:absolute;width:7px;height:7px;background:var(--cyan);border-radius:50%;box-shadow:0 0 14px var(--cyan);top:5px;left:50%}.research-orbit b{background:var(--purple);top:auto;left:auto;bottom:15px;right:5px}.research-topics{display:flex;flex-direction:column;justify-content:center}.research-topics a{display:flex;align-items:center;gap:16px;padding:19px 14px;border-bottom:1px solid #9b8acb22;transition:.2s}.research-topics a:hover{padding-left:23px;color:#c4b5fd}.research-topics a span{font:10px var(--mono);color:#8b5cf6}.research-topics a b{font-size:13px}.research-topics a i{margin-left:auto;color:var(--cyan);font-style:normal}.note{font:10px/1.7 var(--mono);color:#827b9e;margin:16px 14px}.ai-section{background:#090716;overflow:hidden}.ai-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:#6d28d933;filter:blur(110px);right:-150px;top:10%;pointer-events:none}.ai-card{min-height:260px}.ai-card-icon{color:#67e8f9}.ai-card .section-label,.achievement-card .section-label{font-size:9px}.ai-card h3{margin:10px 0}.ai-line{position:absolute;bottom:0;left:0;width:40%;height:2px;background:linear-gradient(90deg,var(--purple),var(--cyan));box-shadow:0 0 16px var(--cyan)}.achievements-section{background:radial-gradient(ellipse at 80% 50%,#17255455,transparent 45%),#080713}.achievement-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.achievement-card{min-height:270px}.achievement-icon{font-size:35px;color:#c084fc;text-shadow:0 0 20px #a855f7;margin-bottom:20px}.achievement-card h3{font-size:24px;margin:8px 0 12px}.achievement-card p{max-width:520px}.achievement-foot{position:absolute;bottom:22px;left:30px;right:30px;padding-top:13px;border-top:1px solid #a78bfa33;font:9px var(--mono);letter-spacing:1px;color:#8f88aa}.achievement-foot b{float:right;color:#a78bfa}.contact-section{padding:110px clamp(24px,8vw,130px);background:linear-gradient(110deg,#100820,#080b1b 65%,#071a2b);position:relative;overflow:hidden;display:flex;align-items:center;min-height:420px}.contact-glow{position:absolute;width:500px;height:500px;right:5%;top:-30%;border-radius:50%;background:#7c3aed44;filter:blur(100px)}.contact-content{position:relative;z-index:1}.contact-section h2{font-size:clamp(44px,6vw,76px)}.contact-section p:not(.section-label){color:var(--muted);font-size:14px;margin-bottom:26px}.contact-content small{display:block;color:#827b9e;font:9px var(--mono);margin-top:16px}.contact-mark{position:absolute;right:12%;font-size:clamp(180px,28vw,360px);font-weight:800;color:#a855f7;opacity:.07}.site-footer{padding:28px clamp(20px,5vw,76px);display:flex;align-items:center;justify-content:space-between;gap:20px;background:#05040c;border-top:1px solid #a78bfa22}.footer-brand{min-width:auto}.footer-brand .brand-mark{font-size:28px}.footer-brand .brand-name{font-size:14px}.footer-brand .brand-name small{font-size:8px}.site-footer p,.site-footer>span{font:10px var(--mono);color:#817b9d}.back-to-top{position:fixed;right:22px;bottom:22px;z-index:25;width:42px;height:42px;border-radius:9px;border:1px solid #8b5cf6;background:#100b24dd;color:white;font-size:20px;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s;backdrop-filter:blur(10px)}.back-to-top.visible{opacity:1;pointer-events:auto;transform:none}.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}.reveal.is-visible{opacity:1;transform:translateY(0)}@keyframes blink{50%{opacity:0}}@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:1150px){.main-nav{gap:13px}.main-nav a{font-size:10px}.brand{min-width:145px}.header-cta{padding:10px}.terminal{right:5%;width:270px}.hero-cards{left:4%;right:4%;gap:10px}.feature-card{padding:14px;gap:9px}.feature-card strong{font-size:11px}.feature-card small{font-size:9px}}
+@media(max-width:900px){.site-header{height:70px}.menu-toggle{display:block;order:3}.header-cta{margin-left:auto;margin-right:16px}.main-nav{display:none;position:absolute;top:70px;left:16px;right:16px;padding:16px;background:#080716f5;border:1px solid #8b5cf666;border-radius:12px;backdrop-filter:blur(20px);flex-direction:column;align-items:stretch;gap:0}.main-nav.open{display:flex}.main-nav a{font-size:13px;padding:13px;border-bottom:1px solid #8b5cf622}.main-nav a:last-child{border:0}.main-nav a.active:after{display:none}.hero{min-height:900px;height:auto}.hero-image{background-position:58% center;opacity:.68}.hero-copy{top:18%;left:7%;right:7%;max-width:560px}.hero h1{font-size:clamp(65px,13vw,110px)}.terminal{top:auto;bottom:29%;right:7%;width:260px}.hero-social{display:none}.hero-cards{bottom:7%;grid-template-columns:repeat(2,1fr);left:7%;right:7%}.feature-card{min-height:78px}.section{padding-top:90px;padding-bottom:90px}.project-grid{grid-template-columns:repeat(2,1fr)}.project-card:last-child{grid-column:1/-1}.research-layout{grid-template-columns:1fr}.research-main{min-height:250px}}
+@media(max-width:600px){.site-header{padding:0 17px}.brand{gap:8px;min-width:0}.brand-mark{font-size:31px}.brand-name{font-size:14px}.brand-name small{font-size:8px;letter-spacing:2px}.header-cta{font-size:0;padding:10px 12px;margin-right:10px}.header-cta span{font-size:15px}.hero{min-height:900px}.hero-image{background-position:57% center;opacity:.55}.hero-vignette{background:linear-gradient(90deg,#070611bb,#07061133),linear-gradient(0deg,#070611 0%,transparent 50%,#07061199)}.hero-copy{top:17%;left:22px;right:22px}.eyebrow{font-size:8px;padding:8px 10px;gap:8px}.hero-kicker{font-size:10px;letter-spacing:6px;margin-top:24px}.hero h1{font-size:clamp(58px,17vw,90px);letter-spacing:-5px;margin:13px 0}.hero-tagline{font-size:13px;line-height:1.7}.hero-description{font-size:10px;max-width:300px}.hero-actions{gap:8px;flex-wrap:wrap;margin-top:22px}.button{font-size:10px;padding:12px 13px;gap:10px}.button-ghost{padding-left:8px}.terminal{bottom:28%;left:22px;right:22px;width:auto;padding:12px 15px;font-size:9px}.hero-cards{left:18px;right:18px;bottom:4%;gap:8px}.feature-card{min-height:70px;padding:10px;gap:8px;border-radius:9px}.feature-icon{font-size:19px;min-width:22px}.feature-card strong{font-size:9px}.feature-card small{font-size:8px;margin-top:4px}.card-arrow{font-size:13px}.section{padding:76px 21px}.section-heading{margin-bottom:30px}.section h2{font-size:36px;letter-spacing:-1.5px}.section-intro{font-size:12px}.about-grid,.project-grid,.ai-grid,.achievement-grid{grid-template-columns:1fr}.project-card:last-child{grid-column:auto}.about-panel{min-height:190px}.project-content p{min-height:0}.research-main{grid-template-columns:1fr;padding:24px;gap:20px}.research-orbit{width:110px;height:110px;margin:0 auto}.research-orbit span{font-size:40px}.research-main h3{font-size:22px}.ai-card{min-height:220px}.achievement-card{min-height:245px}.contact-section{padding:80px 22px;min-height:390px}.contact-section h2{font-size:48px}.contact-mark{right:-10%;font-size:220px}.site-footer{padding:25px 20px;flex-wrap:wrap}.site-footer p{order:3;width:100%;margin:0}.site-footer>span{font-size:8px}.footer-brand .brand-name{font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* WALHACK content expansion — keeps the approved violet/cyan cyberpunk visual system */
+.linked-card{display:block;color:inherit;text-decoration:none;cursor:pointer}.linked-card:hover{transform:translateY(-6px);border-color:rgba(168,121,255,.65)}.card-credit{margin-top:14px;padding-top:12px;border-top:1px solid rgba(168,121,255,.18);display:flex;justify-content:flex-end;gap:5px;align-items:center;color:#a9a1bd;font:10px 'Space Mono',monospace;text-align:right}.card-credit strong{color:#d9c8ff}.research-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.research-card{display:block;overflow:hidden;text-decoration:none;color:inherit;transition:transform .3s,border-color .3s}.research-card:hover{transform:translateY(-7px);border-color:rgba(168,121,255,.7)}.research-card-art{height:190px;display:flex;flex-direction:column;justify-content:space-between;padding:22px;background:radial-gradient(circle at 70% 30%,rgba(140,75,255,.45),transparent 45%),linear-gradient(135deg,#100b24,#080b18);border-bottom:1px solid rgba(168,121,255,.22);font:10px 'Space Mono',monospace;color:#b9a5e8}.research-card-art b{font:700 clamp(28px,4vw,48px) 'Space Mono',monospace;letter-spacing:2px;color:#f5f0ff;text-shadow:0 0 28px rgba(168,121,255,.7)}.research-art-hitv{background:radial-gradient(circle at 75% 35%,rgba(50,175,222,.35),transparent 40%),linear-gradient(135deg,#0a1025,#120a24)}.research-art-silicon{background:radial-gradient(circle at 70% 30%,rgba(78,95,255,.42),transparent 45%),linear-gradient(135deg,#0b1020,#160b28)}.research-card-body{padding:23px}.research-card-body h3{font-size:20px;line-height:1.5;margin:8px 0}.research-card-body p:not(.section-label){color:#aaa3bd;font-size:13px;line-height:1.8}.research-card-body .text-link{display:inline-block;margin-top:18px}.team-heading{margin:60px 0 20px}.team-heading h3{font-size:clamp(26px,4vw,38px);margin:10px 0}.team-heading h3 em{font-style:normal;color:var(--purple)}.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.team-card{display:flex;align-items:center;gap:20px;padding:25px}.team-avatar{width:68px;height:68px;flex:0 0 68px;border:1px solid rgba(168,121,255,.5);border-radius:50%;display:grid;place-items:center;font:700 18px 'Space Mono',monospace;color:#e4d7ff;background:radial-gradient(circle,rgba(168,121,255,.3),rgba(16,11,33,.8));box-shadow:0 0 28px rgba(133,78,255,.22)}.team-card h3{margin:0 0 5px}.team-card p{color:#aaa3bd;font-size:12px;line-height:1.7;margin:5px 0}.team-card .team-role{color:#b99aff;font:10px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:1px}.achievement-card{display:block;text-decoration:none;color:inherit}.achievement-card:hover{transform:translateY(-5px);border-color:rgba(168,121,255,.65)}@media(max-width:900px){.research-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.research-card-grid,.team-grid{grid-template-columns:1fr}.team-card{align-items:flex-start;padding:20px}.research-card-art{height:160px}}
+
+/* WALHACK content expansion — keeps the approved violet/cyan cyberpunk visual system */
+.linked-card{display:block;color:inherit;text-decoration:none;cursor:pointer}.linked-card:hover{transform:translateY(-6px);border-color:rgba(168,121,255,.65)}.card-credit{margin-top:14px;padding-top:12px;border-top:1px solid rgba(168,121,255,.18);display:flex;justify-content:flex-end;gap:5px;align-items:center;color:#a9a1bd;font:10px 'Space Mono',monospace;text-align:right}.card-credit strong{color:#d9c8ff}.research-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.research-card{display:block;overflow:hidden;text-decoration:none;color:inherit;transition:transform .3s,border-color .3s}.research-card:hover{transform:translateY(-7px);border-color:rgba(168,121,255,.7)}.research-card-art{height:190px;display:flex;flex-direction:column;justify-content:space-between;padding:22px;background:radial-gradient(circle at 70% 30%,rgba(140,75,255,.45),transparent 45%),linear-gradient(135deg,#100b24,#080b18);border-bottom:1px solid rgba(168,121,255,.22);font:10px 'Space Mono',monospace;color:#b9a5e8}.research-card-art b{font:700 clamp(28px,4vw,48px) 'Space Mono',monospace;letter-spacing:2px;color:#f5f0ff;text-shadow:0 0 28px rgba(168,121,255,.7)}.research-art-hitv{background:radial-gradient(circle at 75% 35%,rgba(50,175,222,.35),transparent 40%),linear-gradient(135deg,#0a1025,#120a24)}.research-art-silicon{background:radial-gradient(circle at 70% 30%,rgba(78,95,255,.42),transparent 45%),linear-gradient(135deg,#0b1020,#160b28)}.research-card-body{padding:23px}.research-card-body h3{font-size:20px;line-height:1.5;margin:8px 0}.research-card-body p:not(.section-label){color:#aaa3bd;font-size:13px;line-height:1.8}.research-card-body .text-link{display:inline-block;margin-top:18px}.team-heading{margin:60px 0 20px}.team-heading h3{font-size:clamp(26px,4vw,38px);margin:10px 0}.team-heading h3 em{font-style:normal;color:var(--purple)}.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.team-card{display:flex;align-items:center;gap:20px;padding:25px}.team-avatar{width:68px;height:68px;flex:0 0 68px;border:1px solid rgba(168,121,255,.5);border-radius:50%;display:grid;place-items:center;font:700 18px 'Space Mono',monospace;color:#e4d7ff;background:radial-gradient(circle,rgba(168,121,255,.3),rgba(16,11,33,.8));box-shadow:0 0 28px rgba(133,78,255,.22)}.team-card h3{margin:0 0 5px}.team-card p{color:#aaa3bd;font-size:12px;line-height:1.7;margin:5px 0}.team-card .team-role{color:#b99aff;font:10px 'Space Mono',monospace;text-transform:uppercase;letter-spacing:1px}.achievement-card{display:block;text-decoration:none;color:inherit}.achievement-card:hover{transform:translateY(-5px);border-color:rgba(168,121,255,.65)}@media(max-width:900px){.research-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.research-card-grid,.team-grid{grid-template-columns:1fr}.team-card{align-items:flex-start;padding:20px}.research-card-art{height:160px}}
+
+/* WALHACK refinement: isolated character hero, no screenshot UI baked into the background. */
+.hero-image{background-color:#05040d;background-size:auto 96%;background-position:68% center;filter:saturate(1.05)}
+.hero-vignette{background:linear-gradient(90deg,#05030f 0%,#05030f99 32%,transparent 72%),linear-gradient(0deg,#070611 0%,transparent 34%,#05040d44 100%)}
+.language-toggle{border:1px solid #8b5cf688;background:#100b24cc;color:#e9ddff;border-radius:8px;padding:9px 13px;font:11px var(--mono);cursor:pointer;transition:.2s}
+.language-toggle:hover{border-color:var(--cyan);color:#fff;box-shadow:0 0 18px #22d3ee33}
+html[dir="rtl"] body{direction:rtl}
+html[dir="rtl"] .hero-copy{left:auto;right:clamp(24px,8vw,130px);text-align:right}
+html[dir="rtl"] .hero-actions{justify-content:flex-start}
+html[dir="rtl"] .hero-vignette{background:linear-gradient(270deg,#05030f 0%,#05030f99 32%,transparent 72%),linear-gradient(0deg,#070611 0%,transparent 34%,#05040d44 100%)}
+@media(max-width:900px){.site-header{gap:10px}.language-toggle{margin-left:auto}.hero-image{background-size:auto 78%;background-position:62% 28%;opacity:.62}.hero-copy{left:22px;right:22px;text-align:left}html[dir="rtl"] .hero-copy{left:22px;right:22px;text-align:right}.hero-vignette{background:linear-gradient(90deg,#070611dd,#07061155),linear-gradient(0deg,#070611 0%,transparent 50%,#07061188)}html[dir="rtl"] .hero-vignette{background:linear-gradient(270deg,#070611dd,#07061155),linear-gradient(0deg,#070611 0%,transparent 50%,#07061188)}}
+@media(max-width:640px){.language-toggle{padding:7px 10px;font-size:10px}.hero-image{background-size:auto 65%;background-position:58% 24%;opacity:.42}.hero{min-height:900px}}
+
+
+/* ==========================================================
+   WALHACK — Neon HUD / floating glass refinement
+   Scoped visual overrides; original layout and content kept.
+   ========================================================== */
+:root{
+  --bg:#05040d;
+  --purple:#ea00d9;
+  --cyan:#00fff9;
+  --text:#f5f3ff;
+  --muted:#8da4be;
+  --mono:"Share Tech Mono","Space Mono",monospace;
+  --sans:"Inter",sans-serif;
+}
+body{background:var(--bg)}
+
+/* Header monogram: the W itself carries the same identity as the hero wordmark. */
+.brand-mark{
+  position:relative;display:inline-block;isolation:isolate;
+  font-family:"Orbitron",sans-serif;font-weight:900;font-style:italic;
+  line-height:1;background:linear-gradient(135deg,#fff 4%,#ea00d9 52%,#00fff9 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  color:transparent;letter-spacing:-3px;
+  filter:drop-shadow(0 0 8px rgba(234,0,217,.72)) drop-shadow(0 0 14px rgba(0,255,249,.28));
+  animation:walhack-mark-float 4.8s ease-in-out infinite;
+}
+.brand-mark::before,.brand-mark::after{
+  content:attr(data-text);position:absolute;inset:0;pointer-events:none;
+  -webkit-text-fill-color:currentColor;background:none;
+}
+.brand-mark::before{color:#ff00c1;text-shadow:2px 0 #ff00c1;clip-path:inset(0 0 66% 0);animation:walhack-glitch-a 3.2s infinite steps(1)}
+.brand-mark::after{color:#00fff9;text-shadow:-2px 0 #00fff9;clip-path:inset(62% 0 0 0);animation:walhack-glitch-b 2.7s infinite steps(1)}
+
+/* Hero wordmark: keep the real text accessible; pseudo layers only add glitch slices. */
+.hero h1{
+  position:relative;display:inline-block;isolation:isolate;max-width:100%;
+  font-family:"Orbitron",sans-serif;font-weight:900;font-style:italic;
+  letter-spacing:-3px;white-space:nowrap;
+  color:#fff!important;
+  background:linear-gradient(100deg,#fff 0%,#ea00d9 48%,#00fff9 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 10px rgba(234,0,217,.95),0 0 20px rgba(234,0,217,.72),0 0 40px rgba(234,0,217,.45);
+  filter:drop-shadow(0 0 13px rgba(234,0,217,.28));
+  animation:walhack-title-flicker 6s infinite;
+}
+.hero h1 span{
+  background:linear-gradient(100deg,#fff 0%,#ea00d9 48%,#00fff9 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero h1::before,.hero h1::after{
+  content:attr(data-text);position:absolute;inset:0;pointer-events:none;
+  font:inherit;letter-spacing:inherit;line-height:inherit;
+  -webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero h1::before{
+  background:linear-gradient(100deg,#ff00c1,#ff00c1);
+  -webkit-background-clip:text;background-clip:text;
+  text-shadow:2px 0 #ff00c1;
+  clip-path:inset(0 0 68% 0);transform:translateX(-2px);
+  animation:walhack-glitch-a 3.4s infinite steps(1);
+}
+.hero h1::after{
+  background:linear-gradient(100deg,#00fff9,#00fff9);
+  -webkit-background-clip:text;background-clip:text;
+  text-shadow:-2px 0 #00fff9;
+  clip-path:inset(62% 0 0 0);transform:translateX(2px);
+  animation:walhack-glitch-b 2.9s infinite steps(1);
+}
+.hero-tagline,.hero-description,.eyebrow,.section-label{
+  font-family:"Share Tech Mono","Space Mono",monospace;
+}
+.hero-tagline em,.section-heading h2 em,.team-heading h3 em{
+  color:#ea00d9;text-shadow:0 0 10px rgba(234,0,217,.9),0 0 22px rgba(234,0,217,.45);
+}
+
+/* The hero remains a layered stage: character image, vignette, animated grid, UI. */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--bg)}
+.hero-image{position:absolute;inset:0;width:100%;height:100%;z-index:-3;background-size:cover;background-position:center;}
+.hero-grid{
+  z-index:-1;opacity:.19;pointer-events:none;
+  background-image:linear-gradient(rgba(0,255,249,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,249,.15) 1px,transparent 1px);
+  background-size:64px 64px;
+  filter:drop-shadow(0 0 3px rgba(0,255,249,.22));
+  animation:walhack-grid-drift 22s linear infinite;
+}
+.hero-vignette{z-index:-2}
+
+/* Transparent glass: retain depth and readable contrast while revealing the image behind. */
+.terminal,.glass-panel,.feature-card{
+  background:rgba(13,9,29,.48)!important;
+  border:1px solid rgba(0,255,249,.32)!important;
+  -webkit-backdrop-filter:blur(15px) saturate(180%)!important;
+  backdrop-filter:blur(15px) saturate(180%)!important;
+  box-shadow:0 0 20px rgba(0,255,249,.13),inset 0 0 15px rgba(0,255,249,.055),0 12px 45px rgba(2,1,10,.28)!important;
+}
+.feature-card{background:rgba(13,9,29,.38)!important}
+.terminal{background:rgba(13,9,29,.46)!important}
+.feature-card:hover,.glass-panel:hover{
+  border-color:rgba(0,255,249,.68)!important;
+  box-shadow:0 0 28px rgba(0,255,249,.2),inset 0 0 18px rgba(234,0,217,.08),0 16px 48px rgba(2,1,10,.34)!important;
+}
+.button-primary{
+  background:linear-gradient(135deg,#ea00d9,#6720d7)!important;
+  border:1px solid #00fff9!important;
+  box-shadow:0 0 20px rgba(234,0,217,.5),0 0 14px rgba(0,255,249,.16)!important;
+}
+.button-primary:hover{box-shadow:0 0 30px rgba(234,0,217,.72),0 0 20px rgba(0,255,249,.28)!important}
+
+/* Gentle levitation makes the interface feel suspended above the character backdrop. */
+.terminal{animation:walhack-float 6.2s ease-in-out infinite}
+.hero-cards .feature-card:nth-child(odd){animation:walhack-float 7s ease-in-out infinite}
+.hero-cards .feature-card:nth-child(even){animation:walhack-float 7s ease-in-out -3.5s infinite}
+.about-panel,.team-card,.project-card,.research-card,.ai-card,.achievement-card{
+  transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease;
+}
+.about-panel:hover,.team-card:hover,.project-card:hover,.research-card:hover,.ai-card:hover,.achievement-card:hover{transform:translateY(-6px)}
+
+@keyframes walhack-glitch-a{
+  0%,88%,100%{clip-path:inset(0 0 68% 0);transform:translateX(-2px)}
+  89%{clip-path:inset(12% 0 72% 0);transform:translateX(4px)}
+  91%{clip-path:inset(42% 0 42% 0);transform:translateX(-5px)}
+  93%{clip-path:inset(8% 0 80% 0);transform:translateX(2px)}
+  95%{clip-path:inset(0 0 68% 0);transform:translateX(-2px)}
+}
+@keyframes walhack-glitch-b{
+  0%,86%,100%{clip-path:inset(62% 0 0 0);transform:translateX(2px)}
+  87%{clip-path:inset(72% 0 8% 0);transform:translateX(-4px)}
+  90%{clip-path:inset(38% 0 48% 0);transform:translateX(5px)}
+  92%{clip-path:inset(82% 0 4% 0);transform:translateX(-2px)}
+  94%{clip-path:inset(62% 0 0 0);transform:translateX(2px)}
+}
+@keyframes walhack-title-flicker{
+  0%,96%,98%,100%{opacity:1}
+  97%{opacity:.88}
+}
+@keyframes walhack-grid-drift{from{background-position:0 0}to{background-position:64px 64px}}
+@keyframes walhack-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes walhack-mark-float{0%,100%{translate:0 0}50%{translate:0 -2px}}
+
+@media(max-width:900px){
+  .hero h1{font-size:clamp(56px,11vw,100px);letter-spacing:-2.5px}
+}
+@media(max-width:600px){
+  .hero h1{font-size:clamp(43px,12.8vw,72px);letter-spacing:-2px}
+  .brand-mark{font-size:31px}
+  .hero-grid{background-size:48px 48px;opacity:.14}
+}
+@media(prefers-reduced-motion:reduce){
+  .brand-mark,.brand-mark::before,.brand-mark::after,.hero h1,.hero h1::before,.hero h1::after,.hero-grid,.terminal,.hero-cards .feature-card:nth-child(odd),.hero-cards .feature-card:nth-child(even){animation:none!important}
+}
+\n\n/* =====================================================================\n   WALHACK VISUAL CONTROL PANEL — grouped editable components\n   Change the tokens above first; component-specific overrides are below.\n   ===================================================================== */\n\n/* 01 — GLOBAL BACKGROUND & ACCENT COLORS */\nhtml,body{background:var(--bg);color:var(--text-white)}\n.main-nav a:hover,.main-nav a.active{ text-shadow:0 0 12px var(--cyber-purple) }\n.header-cta,.language-toggle{border-color:rgba(0,229,255,.55)}\n\n/* 02 — HEADER MONOGRAM (the W only) */\n.brand-mark{\n  position:relative;display:inline-block;isolation:isolate;\n  font-family:"Orbitron",sans-serif;font-weight:900;font-style:italic;\n  line-height:1;letter-spacing:-3px;\n  background:linear-gradient(135deg,#fff 18%,#c476ff 62%,var(--cyber-cyan) 100%);\n  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;\n  filter:var(--logo-glow);\n  animation:walhack-mark-float 4.8s ease-in-out infinite;\n}\n.brand-mark::before,.brand-mark::after{\n  content:attr(data-text);position:absolute;inset:0;pointer-events:none;\n  font:inherit;letter-spacing:inherit;line-height:inherit;\n  -webkit-text-fill-color:currentColor;background:none;\n}\n.brand-mark::before{color:var(--logo-glitch-cyan);-webkit-text-fill-color:var(--logo-glitch-cyan);text-shadow:-2px 0 var(--logo-glitch-cyan);clip-path:inset(0 0 66% 0);animation:walhack-glitch-cyan 4s infinite linear alternate-reverse}\n.brand-mark::after{color:var(--logo-glitch-purple);-webkit-text-fill-color:var(--logo-glitch-purple);text-shadow:2px 0 var(--logo-glitch-purple);clip-path:inset(62% 0 0 0);animation:walhack-glitch-purple 4s infinite linear alternate-reverse}\n\n/* 03 — HERO WORDMARK (WALHACK) */\n.hero h1{\n  position:relative;display:inline-block;isolation:isolate;max-width:100%;\n  font-family:"Orbitron",sans-serif;font-size:clamp(56px,8.5vw,124px);\n  font-weight:900;font-style:italic;letter-spacing:-4px;line-height:.98;\n  white-space:nowrap;margin:12px 0 20px;\n  color:var(--text-white);background:var(--logo-gradient);\n  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;\n  filter:var(--logo-glow);text-shadow:none;\n}\n.hero h1 span{\n  background:var(--logo-gradient);-webkit-background-clip:text;background-clip:text;\n  -webkit-text-fill-color:transparent;\n}\n.hero h1::before,.hero h1::after{\n  content:attr(data-text);position:absolute;inset:0;pointer-events:none;\n  font:inherit;letter-spacing:inherit;line-height:inherit;white-space:inherit;\n  background:none;-webkit-text-fill-color:currentColor;\n}\n.hero h1::before{\n  color:var(--logo-glitch-cyan);-webkit-text-fill-color:var(--logo-glitch-cyan);\n  text-shadow:-2px 0 var(--logo-glitch-cyan);clip-path:inset(44% 0 48% 0);\n  animation:walhack-glitch-cyan 4s infinite linear alternate-reverse;\n}\n.hero h1::after{\n  color:var(--logo-glitch-purple);-webkit-text-fill-color:var(--logo-glitch-purple);\n  text-shadow:2px 0 var(--logo-glitch-purple);clip-path:inset(12% 0 78% 0);\n  animation:walhack-glitch-purple 4s infinite linear alternate-reverse;\n}\n\n/* 04 — TRANSPARENT HUD: terminal, feature tiles and all glass panels */\n.terminal,.glass-panel,.feature-card{\n  background:var(--glass-bg)!important;\n  border:1px solid var(--glass-border)!important;\n  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%)!important;\n  backdrop-filter:blur(var(--glass-blur)) saturate(160%)!important;\n  box-shadow:var(--glass-shadow)!important;\n}\n.terminal{background:rgba(8,5,18,.55)!important}\n.feature-card:hover,.glass-panel:hover{\n  border-color:var(--cyber-cyan)!important;\n  box-shadow:var(--glass-hover-shadow)!important;\n}\n\n/* 05 — HERO GRID AND FLOATING INTERFACE */\n.hero{background:var(--bg);position:relative;isolation:isolate}\n.hero-grid{\n  z-index:-1;pointer-events:none;opacity:.17;\n  background-image:linear-gradient(rgba(0,229,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.15) 1px,transparent 1px);\n  background-size:64px 64px;filter:drop-shadow(0 0 3px rgba(0,229,255,.2));\n  animation:walhack-grid-drift 22s linear infinite;\n}\n.terminal{animation:walhack-float 6.2s ease-in-out infinite}\n.hero-cards .feature-card:nth-child(odd){animation:walhack-float var(--float-duration) ease-in-out infinite}\n.hero-cards .feature-card:nth-child(even){animation:walhack-float var(--float-duration) ease-in-out -3.5s infinite}\n\n/* 06 — NEON ACCENTS */\n.hero-tagline em,.section-heading h2 em,.team-heading h3 em{\n  color:var(--cyber-purple);text-shadow:0 0 10px var(--cyber-purple),0 0 22px rgba(157,0,255,.45);\n}\n.button-primary{\n  background:linear-gradient(135deg,var(--cyber-purple),#6720d7)!important;\n  border:1px solid var(--cyber-cyan)!important;\n  box-shadow:0 0 20px rgba(157,0,255,.5)!important;\n}\n.button-primary:hover{box-shadow:0 0 30px rgba(157,0,255,.7),0 0 18px rgba(0,229,255,.22)!important}\n\n/* 07 — REUSABLE ANIMATION DEFINITIONS */\n@keyframes walhack-glitch-cyan{\n  0%,86%,100%{clip-path:inset(44% 0 48% 0);transform:translate(-2px,0)}\n  88%{clip-path:inset(8% 0 82% 0);transform:translate(4px,-1px)}\n  91%{clip-path:inset(55% 0 28% 0);transform:translate(-5px,1px)}\n  94%{clip-path:inset(24% 0 62% 0);transform:translate(2px,0)}\n}\n@keyframes walhack-glitch-purple{\n  0%,84%,100%{clip-path:inset(12% 0 78% 0);transform:translate(2px,0)}\n  87%{clip-path:inset(68% 0 12% 0);transform:translate(-4px,1px)}\n  90%{clip-path:inset(34% 0 46% 0);transform:translate(5px,-1px)}\n  93%{clip-path:inset(5% 0 82% 0);transform:translate(-2px,0)}\n}\n@keyframes walhack-grid-drift{from{background-position:0 0}to{background-position:64px 64px}}\n@keyframes walhack-float{0%,100%{translate:0 0}50%{translate:0 calc(-1 * var(--float-distance))}}\n\n/* 08 — RESPONSIVE WORDMARK + ACCESSIBILITY */\n@media(max-width:900px){.hero h1{font-size:clamp(48px,10vw,88px);letter-spacing:-3px}}\n@media(max-width:600px){.hero h1{font-size:clamp(38px,11.5vw,64px);letter-spacing:-2px}.brand-mark{font-size:31px}}\n@media(prefers-reduced-motion:reduce){\n  .brand-mark,.brand-mark::before,.brand-mark::after,.hero h1::before,.hero h1::after,.hero-grid,.terminal,.hero-cards .feature-card{animation:none!important}\n}\n
+
+/* =====================================================================
+   WALHACK FINAL BRAND SYSTEM — editable values and components
+   Purple is dominant. No pink/magenta palette is used.
+   ===================================================================== */
+:root{
+  --bg:#030208;
+  --cyber-purple:#9d00ff;
+  --cyber-purple-deep:#4b087d;
+  --cyber-violet-soft:#c476ff;
+  --cyber-cyan:#00e5ff;
+  --text-white:#ffffff;
+  --brand-glow:0 0 9px rgba(157,0,255,.9),0 0 20px rgba(157,0,255,.55);
+  --brand-glass:rgba(8,5,18,.55);
+}
+
+/* HEADER BRAND — W symbol + team wordmark */
+.brand{
+  display:flex;align-items:center;gap:10px;text-decoration:none;
+  font-family:"Orbitron",sans-serif!important;
+}
+.cyber-logo-mark{
+  position:relative;display:inline-block;isolation:isolate;
+  font-family:"Orbitron",sans-serif;font-size:36px;font-weight:900;
+  font-style:italic;line-height:1;color:#fff;letter-spacing:-3px;
+  transform:skew(-8deg);
+  text-shadow:0 0 8px var(--cyber-purple),0 0 18px var(--cyber-purple),0 0 30px rgba(157,0,255,.55);
+}
+.cyber-logo-mark::before,.cyber-logo-mark::after{
+  content:attr(data-text);position:absolute;inset:0;pointer-events:none;
+  color:#fff;font:inherit;letter-spacing:inherit;line-height:inherit;
+}
+.cyber-logo-mark::before{
+  text-shadow:-2px 0 var(--cyber-purple-deep),-4px 0 rgba(157,0,255,.65);
+  clip-path:inset(0 0 65% 0);animation:walhack-mark-glitch-a 4.2s infinite steps(1,end);
+}
+.cyber-logo-mark::after{
+  text-shadow:2px 0 var(--cyber-cyan);clip-path:inset(62% 0 0 0);
+  animation:walhack-mark-glitch-b 4.2s infinite steps(1,end);
+}
+.brand-text-wrapper{display:flex;flex-direction:column;justify-content:center}
+.brand-name-main{
+  color:#fff;font-family:"Orbitron",sans-serif;font-size:18px;font-weight:900;
+  letter-spacing:1.5px;line-height:1.05;
+  background:linear-gradient(to bottom,#fff 48%,#d8b5ff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 7px rgba(157,0,255,.45));
+}
+
+
+/* HERO WORDMARK — WAL white / HACK violet-to-electric-blue */
+.hero h1{
+  position:relative;display:inline-block;isolation:isolate;
+  font-family:"Orbitron",sans-serif;font-weight:900;font-style:italic;
+  letter-spacing:-4px;line-height:.98;white-space:nowrap;
+  color:#fff;-webkit-text-fill-color:#fff;
+  text-shadow:0 0 8px rgba(255,255,255,.45),0 0 17px rgba(75,8,125,.9),0 0 30px rgba(75,8,125,.65);
+  filter:none;
+}
+.hero h1 span{
+  color:var(--cyber-purple);background:linear-gradient(105deg,#9d00ff 0%,#7b22ff 48%,#00bfff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:none;filter:drop-shadow(0 0 10px rgba(157,0,255,.85)) drop-shadow(0 0 17px rgba(0,191,255,.38));
+}
+.hero h1::before,.hero h1::after{
+  content:attr(data-text);position:absolute;inset:0;pointer-events:none;
+  font:inherit;letter-spacing:inherit;line-height:inherit;white-space:inherit;
+  color:#fff;-webkit-text-fill-color:#fff;background:none;
+}
+/* Dark violet ghost on the outer edges of WAL; a clean white glitch on HACK. */
+.hero h1::before{
+  text-shadow:-3px 0 #4b087d,-1px 0 rgba(157,0,255,.9);
+  clip-path:inset(0 0 68% 0);animation:walhack-hero-glitch-violet 4.1s infinite steps(1,end);
+}
+.hero h1::after{
+  text-shadow:2px 0 #fff,4px 0 rgba(0,229,255,.8);
+  clip-path:inset(62% 0 0 0);animation:walhack-hero-glitch-white 4.1s infinite steps(1,end);
+}
+
+/* Glass interface — transparent surfaces, not opaque cards */
+.terminal,.glass-panel,.feature-card{
+  background:var(--brand-glass)!important;
+  border:1px solid rgba(0,229,255,.25)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(165%)!important;
+  backdrop-filter:blur(12px) saturate(165%)!important;
+  box-shadow:0 0 20px rgba(0,229,255,.1),inset 0 0 15px rgba(157,0,255,.07)!important;
+}
+.feature-card:hover,.glass-panel:hover{
+  border-color:var(--cyber-cyan)!important;
+  box-shadow:0 0 25px rgba(0,229,255,.3),inset 0 0 12px rgba(157,0,255,.12)!important;
+}
+
+@keyframes walhack-mark-glitch-a{
+  0%,88%,100%{clip-path:inset(0 0 65% 0);transform:translateX(-1px)}
+  89%{clip-path:inset(18% 0 58% 0);transform:translateX(-4px)}
+  92%{clip-path:inset(52% 0 30% 0);transform:translateX(2px)}
+  95%{clip-path:inset(0 0 65% 0);transform:translateX(-1px)}
+}
+@keyframes walhack-mark-glitch-b{
+  0%,86%,100%{clip-path:inset(62% 0 0 0);transform:translateX(1px)}
+  88%{clip-path:inset(34% 0 42% 0);transform:translateX(4px)}
+  91%{clip-path:inset(72% 0 4% 0);transform:translateX(-2px)}
+  94%{clip-path:inset(62% 0 0 0);transform:translateX(1px)}
+}
+@keyframes walhack-hero-glitch-violet{
+  0%,87%,100%{clip-path:inset(0 0 68% 0);transform:translateX(-2px)}
+  88%{clip-path:inset(8% 0 78% 0);transform:translateX(-6px)}
+  91%{clip-path:inset(42% 0 43% 0);transform:translateX(4px)}
+  94%{clip-path:inset(0 0 68% 0);transform:translateX(-2px)}
+}
+@keyframes walhack-hero-glitch-white{
+  0%,85%,100%{clip-path:inset(62% 0 0 0);transform:translateX(2px)}
+  87%{clip-path:inset(72% 0 8% 0);transform:translateX(6px)}
+  90%{clip-path:inset(24% 0 62% 0);transform:translateX(-4px)}
+  93%{clip-path:inset(62% 0 0 0);transform:translateX(2px)}
+}
+@media(max-width:900px){.hero h1{letter-spacing:-3px}}
+@media(max-width:600px){
+  .hero h1{letter-spacing:-2px}
+  .cyber-logo-mark{font-size:31px}
+  .brand-name-main{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .cyber-logo-mark::before,.cyber-logo-mark::after,.hero h1::before,.hero h1::after{animation:none!important}
+}
+
+
+/* =====================================================================
+   HERO CTA BUTTONS — capsule primary + text-only secondary
+   ===================================================================== */
+.hero-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero-actions .button{font-family:"Share Tech Mono",monospace!important;letter-spacing:.5px;text-decoration:none}
+.hero-actions .button-primary{
+  background:rgba(157,0,255,.03)!important;
+  border:1px solid #9d00ff!important;
+  border-radius:50px!important;
+  padding:10px 24px!important;
+  color:#fff!important;
+  font-weight:700!important;
+  letter-spacing:.5px;
+  box-shadow:0 0 15px rgba(157,0,255,.25),inset 0 0 10px rgba(157,0,255,.1)!important;
+  transition:all .3s cubic-bezier(.16,1,.3,1)!important;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.hero-actions .button-primary:hover{
+  background:rgba(157,0,255,.15)!important;
+  border-color:#00e5ff!important;
+  box-shadow:0 0 25px rgba(0,229,255,.5)!important;
+  transform:translateY(-2px);
+}
+.hero-actions .button-ghost{
+  background:transparent!important;border:0!important;
+  color:#fff!important;font-weight:500!important;
+  padding:10px 20px!important;display:inline-flex;align-items:center;gap:8px;
+  transition:all .3s ease!important;box-shadow:none!important;
+}
+.hero-actions .button-ghost:hover{
+  color:#00e5ff!important;text-shadow:0 0 10px #00e5ff!important;
+  transform:translateY(-2px);
+}
+.hero-actions .button span,.hero-actions .button i,.hero-actions .play-icon{
+  text-shadow:inherit;
+}
+.hero-actions .button-arrow{display:inline-block;font-size:14px;line-height:1;transition:transform .25s ease}
+.hero-actions .button:hover .button-arrow{transform:translateX(3px)}
+html[dir=rtl] .hero-actions .button:hover .button-arrow{transform:translateX(-3px)}
+
+/* =====================================================================
+   TEAM PROFILE — editable expertise chips
+   ===================================================================== */
+.team-expertise-label{margin:13px 0 8px!important;color:#c7b5e5!important;font:10px "Share Tech Mono",monospace!important;letter-spacing:1.2px;text-transform:uppercase}
+.team-expertise{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.team-expertise span{display:inline-flex;align-items:center;padding:6px 9px;border:1px solid rgba(157,0,255,.38);border-radius:999px;background:rgba(157,0,255,.07);color:#e9ddff;font:10px "Share Tech Mono",monospace;line-height:1.35}
+.team-expertise span:hover{border-color:rgba(0,229,255,.65);box-shadow:0 0 12px rgba(0,229,255,.14)}
+@media(max-width:640px){.hero-actions{gap:8px}.hero-actions .button-primary{padding:10px 18px!important}.hero-actions .button-ghost{padding:10px 12px!important}.team-expertise span{font-size:9px}}
+
+
+/* WALHACK approved navigation, category pages, logo and contact directory */
+.cyber-logo-mark{position:relative;display:inline-block;font-family:Orbitron,sans-serif;font-size:39px;font-weight:900;line-height:.9;letter-spacing:-5px;color:#c476ff;transform:perspective(90px) rotateY(-9deg) skewX(-5deg) scaleX(1.18);-webkit-text-stroke:1px #d9a7ff;text-shadow:1px 1px 0 #7100b8,2px 2px 0 #5b0792,3px 3px 0 #3d0668,4px 4px 0 #25043f,0 0 8px #9d00ff,0 0 19px #9d00ff,0 0 30px #7600d8;animation:logo-glitch 6s infinite steps(1)}
+.cyber-logo-mark:before,.cyber-logo-mark:after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;opacity:0}
+.cyber-logo-mark:before{color:#00e5ff;text-shadow:2px 0 #00e5ff;clip-path:inset(15% 0 62% 0);animation:logo-glitch-cyan 6s infinite steps(1)}
+.cyber-logo-mark:after{color:#9d00ff;text-shadow:-2px 0 #9d00ff;clip-path:inset(62% 0 12% 0);animation:logo-glitch-violet 6s infinite steps(1)}
+@keyframes logo-glitch{0%,94%,100%{transform:perspective(90px) rotateY(-9deg) skewX(-5deg) scaleX(1.18)}95%{transform:translateX(1px) skewX(-8deg)}96%{transform:translateX(-2px) skewX(-3deg)}97%{transform:perspective(90px) rotateY(-9deg) skewX(-5deg) scaleX(1.18)}}
+@keyframes logo-glitch-cyan{0%,94%,100%{opacity:0;transform:none}95%{opacity:.8;transform:translate(3px,-1px)}96%{opacity:.35;transform:translate(-2px,1px)}}
+@keyframes logo-glitch-violet{0%,94%,100%{opacity:0;transform:none}95%{opacity:.7;transform:translate(-3px,1px)}96%{opacity:.3;transform:translate(2px,-1px)}}
+.brand{gap:13px}.brand-name-main{font-family:Orbitron,sans-serif;font-size:16px;font-weight:800;letter-spacing:2px;color:#fff}.footer-brand .cyber-logo-mark{font-size:31px}.category-hub{padding-top:95px;background:radial-gradient(ellipse at 50% 0%,#35105a44,transparent 55%),#080713}.category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.category-card{position:relative;display:flex;flex-direction:column;min-height:245px;padding:30px;border-radius:15px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}.category-card:before{content:"";position:absolute;inset:auto -15% -60% 30%;height:180px;background:radial-gradient(ellipse,#9d00ff35,transparent 70%);pointer-events:none}.category-card:hover{transform:translateY(-7px);border-color:#00e5ff;box-shadow:0 15px 42px #06b6d433}.category-number{position:absolute;right:24px;top:20px;color:#6f648e;font:11px var(--mono)}.category-symbol{font:34px var(--mono);color:#c476ff;text-shadow:0 0 20px #9d00ff;margin-bottom:22px}.category-card h3{font:800 21px Orbitron,sans-serif;letter-spacing:1.2px;margin:0 0 10px;color:#fff}.category-card p{font:12px/1.8 var(--mono);color:#bcb7d2;max-width:430px;margin:0}.category-open{margin-top:auto;padding-top:22px;font:10px var(--mono);letter-spacing:1.8px;color:#c476ff}.category-open b{font-size:16px;margin-left:8px;color:#00e5ff}.category-page,.contact-page{padding-top:78px;min-height:calc(100vh - 90px);background:radial-gradient(ellipse at 75% 15%,#35105a44,transparent 48%),#070611}.category-listing{padding-top:55px}.category-listing .section-heading h1,.contact-heading h1{font-size:clamp(38px,6vw,68px);line-height:1.08;letter-spacing:-2px;margin:0 0 16px;font-family:Orbitron,sans-serif}.category-listing .section-heading h1 em,.contact-heading h1 em{font-style:normal;color:#c476ff;text-shadow:0 0 25px #9d00ff66}.page-back{margin-bottom:38px}.page-back a{font:10px var(--mono);letter-spacing:1.5px;color:#c476ff}.category-listing .research-card-grid,.category-listing .project-grid,.category-listing .achievement-grid{margin-top:38px}.category-listing .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-directory{max-width:900px;margin:0 auto;padding-top:55px}.contact-heading{text-align:center;margin:20px auto 45px}.contact-heading>p:last-child{font:12px var(--mono);letter-spacing:2px;color:#c7b5e5}.contact-heading h1{margin-bottom:14px}.contact-links{display:grid;gap:18px;max-width:720px;margin:0 auto}.contact-link-button{width:100%;min-height:88px;display:flex;align-items:center;gap:18px;padding:18px 25px;border:1px solid #9d00ff;border-radius:50px;background:rgba(157,0,255,.035);box-shadow:0 0 15px rgba(157,0,255,.2),inset 0 0 10px rgba(157,0,255,.08);color:#fff;transition:all .3s ease;text-align:left}.contact-link-button:hover{border-color:#00e5ff;box-shadow:0 0 25px rgba(0,229,255,.32);background:rgba(157,0,255,.12);transform:translateY(-3px)}.contact-link-icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #9d00ff66;border-radius:50%;font-size:20px;color:#c476ff;text-shadow:0 0 12px #9d00ff}.contact-link-button>span:nth-child(2){display:grid;gap:5px;min-width:0}.contact-link-button small{font:10px var(--mono);letter-spacing:2px;color:#c476ff}.contact-link-button strong{font:13px var(--mono);font-weight:600;overflow-wrap:anywhere}.contact-link-button>b{margin-left:auto;color:#c476ff;font-size:19px}.copy-discord{margin-left:auto;border:1px solid #9d00ff;border-radius:30px;background:transparent;color:#fff;padding:9px 16px;font:10px var(--mono);cursor:pointer}.copy-discord:hover{border-color:#00e5ff;color:#00e5ff}.team-card{align-items:flex-start}.team-card>div:last-child{min-width:0;flex:1}.team-mission-label{margin:15px 0 5px!important;color:#c476ff!important;font:10px var(--mono)!important;letter-spacing:1.5px}.team-card .team-mission{line-height:1.8}.team-quote{margin-top:13px!important;color:#c476ff!important;font:italic 11px var(--mono)!important;letter-spacing:.5px}.contact-button{background:rgba(157,0,255,.035);border:1px solid #9d00ff;border-radius:50px;color:#fff;box-shadow:0 0 15px rgba(157,0,255,.22),inset 0 0 10px rgba(157,0,255,.08);padding:11px 24px}.contact-button:hover{border-color:#00e5ff;box-shadow:0 0 25px rgba(0,229,255,.4);transform:translateY(-2px)}
+@media(max-width:900px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-listing .project-grid{grid-template-columns:1fr}.team-card{align-items:flex-start}}
+@media(max-width:600px){.category-grid{grid-template-columns:1fr}.category-card{min-height:205px;padding:24px}.contact-link-button{padding:15px 18px;gap:12px;min-height:78px}.contact-link-button strong{font-size:11px}.contact-directory{padding-left:18px;padding-right:18px}.category-listing{padding-left:18px;padding-right:18px}.team-card{flex-direction:column}.site-footer{flex-wrap:wrap}.site-footer .contact-button{order:4}}
+@media(prefers-reduced-motion:reduce){.cyber-logo-mark,.cyber-logo-mark:before,.cyber-logo-mark:after{animation:none!important}}
+
+
+/* WALHACK visual refinement — approved follow-up */
+.brand{gap:22px!important;min-width:205px}
+.footer-brand{gap:18px!important}
+.cyber-logo-mark{color:#5b18a8!important;-webkit-text-stroke:1px #8c45d0!important;text-shadow:1px 1px 0 #3d0668,2px 2px 0 #290447,3px 3px 0 #18032d,0 0 7px rgba(91,24,168,.75),0 0 15px rgba(91,24,168,.48)!important}
+.brand-name-main{background:linear-gradient(180deg,#e8d9ff 0%,#a98ad8 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+.hero-cards{left:clamp(24px,7.5%,110px);right:clamp(24px,7.5%,110px);bottom:7.5%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;z-index:3}
+.hero-section-card{min-height:78px;padding:15px 17px;display:flex;align-items:center;gap:13px;border-radius:11px;text-decoration:none;color:#fff}
+.hero-section-card .feature-number{font:10px var(--mono);color:#9182ad;align-self:flex-start}
+.hero-section-card .feature-icon{font:27px var(--mono);color:#a66be0;text-shadow:0 0 13px rgba(157,0,255,.42);min-width:30px;margin:0}
+.hero-section-card strong{font:700 12px Orbitron,sans-serif;letter-spacing:.8px;line-height:1.4}
+.hero-section-card:hover{transform:translateY(-5px);border-color:var(--cyber-cyan)!important}
+.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch}
+.team-card{display:grid;grid-template-columns:minmax(145px,.72fr) minmax(0,1.5fr);gap:22px;align-items:start;padding:25px;min-width:0}
+.team-profile,.team-details{min-width:0}
+.team-profile{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.team-avatar{width:68px;height:68px;display:grid;place-items:center;border-radius:15px;border:1px solid rgba(157,0,255,.48);background:linear-gradient(145deg,rgba(157,0,255,.2),rgba(0,229,255,.06));color:#d9c1ff;font:800 23px Orbitron,sans-serif;box-shadow:inset 0 0 18px rgba(157,0,255,.12),0 0 18px rgba(157,0,255,.12)}
+.team-profile h3{margin:5px 0 0;font:800 19px Orbitron,sans-serif;letter-spacing:.5px}
+.team-profile p,.team-details p{font-size:11px;line-height:1.75;color:#c7c1d8;margin:0;overflow-wrap:anywhere}
+.team-profile .team-role{color:#c476ff;font:10px var(--mono);letter-spacing:.3px}
+.team-profile .team-status{margin:2px 0 5px}
+.team-expertise-label{margin:0 0 10px!important;color:#c476ff!important;font:10px var(--mono)!important;letter-spacing:1.3px;text-transform:uppercase}
+.team-expertise{display:flex;flex-wrap:wrap;gap:7px;margin:0}
+.team-expertise span{font:9px/1.4 var(--mono);padding:6px 8px;max-width:100%;overflow-wrap:anywhere}
+.team-mission-label{margin:16px 0 5px!important;color:#c476ff!important;font:10px var(--mono)!important;letter-spacing:1.3px}
+.team-card .team-mission{font-size:10px;line-height:1.7}
+.team-quote{margin-top:12px!important;color:#b58be8!important;font:italic 9px var(--mono)!important;letter-spacing:.3px}
+.about-title em,.section-heading h2 em,.team-heading h3 em{color:#a66be0!important;text-shadow:0 0 9px rgba(157,0,255,.45),0 0 18px rgba(157,0,255,.2)!important}
+@media(max-width:1050px){.team-grid{grid-template-columns:1fr}.team-card{grid-template-columns:minmax(150px,.55fr) minmax(0,1.45fr)}}
+@media(max-width:900px){.hero-cards{bottom:6%;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.hero-section-card{min-height:66px;padding:12px}.hero-copy{top:19%;max-width:52%}.terminal{right:5%;top:17%;width:280px}}
+@media(max-width:600px){.brand{gap:16px!important;min-width:0}.footer-brand{gap:14px!important}.hero{min-height:900px;height:auto}.hero-copy{top:115px;left:22px;right:22px;max-width:none}.hero h1{font-size:clamp(42px,12vw,64px)}.terminal{top:465px;left:22px;right:22px;width:auto}.hero-social{top:465px;right:20px}.hero-cards{left:20px;right:20px;bottom:65px;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.hero-section-card{min-height:60px;gap:9px;padding:10px}.hero-section-card .feature-icon{font-size:22px;min-width:24px}.hero-section-card strong{font-size:9px}.scroll-cue{bottom:20px}.team-card{grid-template-columns:1fr;gap:17px;padding:20px}.team-profile{display:grid;grid-template-columns:68px 1fr;column-gap:13px;align-items:center}.team-profile .team-avatar{grid-row:span 3}.team-profile .team-status,.team-profile>p:last-child{grid-column:2}.team-profile .team-status{justify-self:start}.team-details{padding-top:5px}}
+@media(prefers-reduced-motion:reduce){.hero-section-card,.terminal{animation:none!important}}
+
+/* HERO LAYOUT FIX — keep the full WALHACK wordmark clear of the terminal */
+@media (min-width:901px){
+  .hero-copy{width:min(640px,calc(100% - 460px));max-width:none;}
+  .hero h1{display:block;width:max-content;max-width:100%;overflow:visible;letter-spacing:-4px;font-size:clamp(66px,8.5vw,124px);}
+  .terminal{width:clamp(270px,24vw,310px);max-height:184px;overflow:hidden;line-height:1.55;padding:15px 18px;}
+  .terminal p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+}
+@media (min-width:761px) and (max-width:900px){
+  .hero-copy{width:calc(100% - 360px);max-width:none;}
+  .hero h1{display:block;width:max-content;max-width:100%;overflow:visible;letter-spacing:-3px;}
+  .terminal{width:260px;max-height:176px;overflow:hidden;line-height:1.5;padding:14px 16px;}
+  .terminal p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+}
+@media (max-width:760px){
+  .hero h1{display:block;width:max-content;max-width:100%;overflow:visible;letter-spacing:-2px;}
+  .terminal{max-height:154px;overflow:hidden;line-height:1.5;padding:13px 16px;}
+  .terminal p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+}
+
+/* RTL hero mirroring: keep the title and terminal in separate columns */
+@media (min-width:761px){
+  html[dir="rtl"] .hero-copy{left:auto;right:clamp(24px,8vw,130px);text-align:right;}
+  html[dir="rtl"] .terminal{right:auto;left:8%;direction:rtl;text-align:right;}
+  html[dir="rtl"] .terminal-top small{margin-left:0;margin-right:auto;}
+  html[dir="rtl"] .hero-social{right:auto;left:3%;}
+  html[dir="rtl"] .hero h1{direction:ltr;text-align:right;}
+}
+@media (min-width:761px) and (max-width:900px){
+  html[dir="rtl"] .hero-copy{right:clamp(24px,8vw,90px);left:auto;}
+  html[dir="rtl"] .terminal{left:5%;right:auto;}
+  html[dir="rtl"] .hero-social{left:2%;right:auto;}
+}
+@media (max-width:760px){
+  html[dir="rtl"] .hero-copy{left:22px;right:22px;text-align:right;}
+  html[dir="rtl"] .terminal{left:22px;right:22px;direction:rtl;text-align:right;}
+  html[dir="rtl"] .hero-social{left:20px;right:auto;}
+  html[dir="rtl"] .hero h1{direction:ltr;text-align:right;}
+}
+html[dir="rtl"] .hero-actions{justify-content:flex-start;}

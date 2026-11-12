@@ -1,0 +1,258 @@
+{
+  "nav-home": [
+    "Home",
+    "الرئيسية"
+  ],
+  "nav-about": [
+    "About & Team",
+    "عن الفريق"
+  ],
+  "nav-projects": [
+    "Projects",
+    "المشاريع"
+  ],
+  "nav-research": [
+    "Research",
+    "الأبحاث"
+  ],
+  "nav-achievements": [
+    "CTF & Achievements",
+    "CTF والإنجازات"
+  ],
+  "nav-contact": [
+    "Contact",
+    "تواصل"
+  ],
+  "enter-lab": [
+    "Enter Lab",
+    "دخول المختبر"
+  ],
+  "eyebrow": [
+    "CYBERSECURITY  ×  AI  ×  RESEARCH",
+    "الأمن السيبراني × الذكاء الاصطناعي × الأبحاث"
+  ],
+  "hero-tagline": [
+    "We Research. We Build. We Secure.",
+    "نبحث. نبني. نحمي."
+  ],
+  "hero-description": [
+    "Cybersecurity research, offensive security, reverse engineering and intelligent tools.",
+    "أبحاث الأمن السيبراني، والأمن الهجومي، والهندسة العكسية، والأدوات الذكية."
+  ],
+  "explore-work": [
+    "Explore Our Work ❯",
+    "استكشف أعمالنا ❯"
+  ],
+  "discover-team": [
+    "Discover the team ❯",
+    "تعرّف على الفريق ❯"
+  ],
+  "terminal-1": [
+    "> Initializing security protocols...",
+    "> تهيئة بروتوكولات الأمن..."
+  ],
+  "terminal-2": [
+    "> Exploring attack surfaces...",
+    "> استكشاف أسطح الهجوم..."
+  ],
+  "terminal-3": [
+    "> Building next-gen tools...",
+    "> بناء أدوات الجيل القادم..."
+  ],
+  "terminal-4": [
+    "> Welcome to WALHACK.",
+    "> أهلًا بك في WALHACK."
+  ],
+  "feature-research": [
+    "Cyber Research",
+    "الأبحاث السيبرانية"
+  ],
+  "feature-research-sub": [
+    "Research, analysis & discovery",
+    "بحث وتحليل واكتشاف"
+  ],
+  "feature-ctf": [
+    "CTF Achievements",
+    "إنجازات CTF"
+  ],
+  "feature-ctf-sub": [
+    "Challenges, teamwork & results",
+    "تحديات وعمل جماعي ونتائج"
+  ],
+  "feature-vuln": [
+    "Vulnerability Research",
+    "أبحاث الثغرات"
+  ],
+  "feature-vuln-sub": [
+    "Analyze. Understand. Document.",
+    "حلّل. افهم. وثّق."
+  ],
+  "scroll": [
+    "—  SCROLL TO EXPLORE  —",
+    "—  مرّر لاستكشاف الموقع  —"
+  ],
+  "about-label": [
+    "01 / WHO WE ARE",
+    "01 / من نحن"
+  ],
+  "about-title": [
+    "Curiosity is our <em>attack surface.</em>",
+    "الفضول هو <em>نقطة انطلاقنا.</em>"
+  ],
+  "about-intro": [
+    "WALHACK is a cybersecurity-focused team exploring systems, understanding weaknesses and building practical tools through research and experimentation.",
+    "WALHACK فريق يركّز على الأمن السيبراني، يستكشف الأنظمة ويفهم نقاط ضعفها ويبني أدوات عملية عبر البحث والتجربة."
+  ],
+  "projects-label": [
+    "04 / SELECTED WORK",
+    "04 / أعمال مختارة"
+  ],
+  "projects-title": [
+    "Built in the <em>lab.</em>",
+    "صُنع داخل <em>المختبر.</em>"
+  ],
+  "projects-intro": [
+    "A selection of tools and experiments. Completed work is separated from active development.",
+    "مجموعة من الأدوات والتجارب، مع توضيح الأعمال المكتملة وما يزال قيد التطوير."
+  ],
+  "research-label": [
+    "02 / KNOWLEDGE & DISCOVERY",
+    "02 / المعرفة والاكتشاف"
+  ],
+  "research-title": [
+    "Research beyond the <em>surface.</em>",
+    "أبحاث تتجاوز <em>السطح.</em>"
+  ],
+  "research-intro": [
+    "Technical reports and security investigations. Open any report to read the complete original research.",
+    "تقارير تقنية وتحقيقات أمنية. افتح أي بحث لقراءة التقرير الأصلي كاملًا."
+  ],
+  "achievements-label": [
+    "05 / PROOF OF WORK",
+    "05 / سجل الإنجاز"
+  ],
+  "achievements-title": [
+    "Challenges make us <em>sharper.</em>",
+    "التحديات تجعلنا <em>أكثر خبرة.</em>"
+  ],
+  "contact-label": [
+    "06 / ESTABLISH CONNECTION",
+    "06 / ابدأ التواصل"
+  ],
+  "contact-title": [
+    "Have a challenge?<br><em>Let’s talk.</em>",
+    "لديك تحدٍ؟<br><em>لنتحدث.</em>"
+  ],
+  "footer-tagline": [
+    "We Research. We Build. We Secure.",
+    "نبحث. نبني. نحمي."
+  ],
+  "team-userm-role": [
+    "Security Researcher · Team Member",
+    "باحثة أمن سيبراني · عضو الفريق"
+  ],
+  "team-userm-text": [
+    "Focuses on reverse engineering, web application penetration testing and exploit development, alongside building AI-assisted security tools.",
+    "تركّز على الهندسة العكسية واختبار اختراق تطبيقات الويب وتطوير الاستغلالات، إلى جانب بناء أدوات أمنية مدعومة بالذكاء الاصطناعي."
+  ],
+  "team-userm-expertise-label": [
+    "TECHNICAL FOCUS",
+    "مجالات التركيز التقني"
+  ],
+  "skill-re": [
+    "Reverse Engineering",
+    "الهندسة العكسية"
+  ],
+  "skill-web": [
+    "Web Application Pentesting",
+    "اختبار اختراق تطبيقات الويب"
+  ],
+  "skill-exploit": [
+    "Exploit Development",
+    "تطوير الاستغلالات"
+  ],
+  "skill-research": [
+    "Security Research",
+    "البحث الأمني"
+  ],
+  "nav-security-labs": [
+    "Security Labs",
+    "المختبرات الأمنية"
+  ],
+  "feature-security-labs": [
+    "Security Labs",
+    "المختبرات الأمنية"
+  ],
+  "feature-security-labs-sub": [
+    "Hands-on security testing & analysis",
+    "اختبارات وتحليلات أمنية عملية"
+  ],
+  "security-labs-label": [
+    "03 / HANDS-ON SECURITY",
+    "03 / الأمن العملي"
+  ],
+  "security-labs-title": [
+    "Test. Analyze. <em>Understand.</em>",
+    "اختبر. حلّل. <em>افهم.</em>"
+  ],
+  "security-labs-intro": [
+    "Practical security labs, controlled experiments and hands-on technical investigations carried out by the team.",
+    "مختبرات أمنية عملية وتجارب مضبوطة وتحقيقات تقنية ينفذها الفريق."
+  ],
+  "skill-ai-security": [
+    "AI-Assisted Security Tool Development",
+    "تطوير أدوات أمنية مدعومة بالذكاء الاصطناعي"
+  ],
+  "team-wallhack-role": [
+    "Software Analyst & Reverse Engineer",
+    "محلل برمجيات ومهندس عكسي"
+  ],
+  "team-wallhack-text": [
+    "Software analyst and reverse engineer focused on malware analysis and closed-source software.",
+    "محلل برمجيات ومهندس عكسي متخصص في تحليل البرامج الضارة والبرمجيات مغلقة المصدر."
+  ],
+  "team-wallhack-expertise-label": [
+    "AREAS OF EXPERTISE",
+    "مجالات الخبرة"
+  ],
+  "team-mission-label": [
+    "MISSION",
+    "المهمة"
+  ],
+  "team-wallhack-mission": [
+    "Deeply understand software internals, discover vulnerabilities ahead of others, and share knowledge with the security community professionally and systematically.",
+    "فهم عميق للبرمجيات من الداخل، واكتشاف الثغرات، ومشاركة المعرفة مع مجتمع الأمان السيبراني بطريقة احترافية ومنظمة."
+  ],
+  "contact-page-label": [
+    "ESTABLISH CONNECTION",
+    "ابدأ التواصل"
+  ],
+  "contact-page-title": [
+    "CONTACT WALHACK",
+    "تواصل مع WALHACK"
+  ],
+  "contact-page-subtitle": [
+    "REVERSE ENGINEERING | EXPLOITATION",
+    "الهندسة العكسية | الاستغلال"
+  ],
+  "contact-email-label": [
+    "E-MAIL",
+    "البريد الإلكتروني"
+  ],
+  "contact-telegram-label": [
+    "TELEGRAM",
+    "تيليجرام"
+  ],
+  "contact-discord-label": [
+    "DISCORD",
+    "ديسكورد"
+  ],
+  "contact-copy": [
+    "COPY",
+    "نسخ"
+  ],
+  "contact-us-button": [
+    "Contact Us ❯",
+    "تواصل معنا ❯"
+  ]
+}
